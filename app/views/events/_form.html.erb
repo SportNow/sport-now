@@ -1,0 +1,23 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :headline %>
+    <%= f.input :description %>
+    <%= f.input :lat %>
+    <%= f.input :lng %>
+    <%= f.input :address %>
+    <%= f.input :datetime %>
+    <%= f.input :type %>
+    <%= f.input :max_seats %>
+    <%= f.input :skill_min %>
+    <%= f.input :skill_max %>
+    <%= f.association :image %>
+    <%= f.association :sport %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

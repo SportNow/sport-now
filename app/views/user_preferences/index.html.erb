@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Skill level</th>
+      <th>Notes</th>
+      <th>User</th>
+      <th>Sport</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_preferences.each do |user_preference| %>
+      <tr>
+        <td><%= user_preference.skill_level %></td>
+        <td><%= user_preference.notes %></td>
+        <td><%= user_preference.user %></td>
+        <td><%= user_preference.sport %></td>
+        <td><%= link_to 'Show', user_preference %></td>
+        <td><%= link_to 'Edit', edit_user_preference_path(user_preference) %></td>
+        <td><%= link_to 'Destroy', user_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User preference', new_user_preference_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :user_preferences
   root 'welcome#index'
 
   devise_for :users

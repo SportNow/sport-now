@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skill_level: 1
+  notes: MyString
+  user_id: 
+  sport_id: 
+
+two:
+  skill_level: 1
+  notes: MyString
+  user_id: 
+  sport_id: 

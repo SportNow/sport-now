@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  headline: MyString
+  description: MyString
+  lat: 1.5
+  lng: 1.5
+  address: MyString
+  datetime: 2016-03-09 06:35:06
+  type: 
+  max_seats: 1
+  skill_min: 1
+  skill_max: 1
+  image_id: 
+  sport_id: 
+  user_id: 
+
+two:
+  headline: MyString
+  description: MyString
+  lat: 1.5
+  lng: 1.5
+  address: MyString
+  datetime: 2016-03-09 06:35:06
+  type: 
+  max_seats: 1
+  skill_min: 1
+  skill_max: 1
+  image_id: 
+  sport_id: 
+  user_id: 

@@ -1,0 +1,14 @@
+<%= simple_form_for(@user_preference) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :skill_level %>
+    <%= f.input :notes %>
+    <%= f.association :user %>
+    <%= f.association :sport %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Skill level:</strong>
+  <%= @user_preference.skill_level %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @user_preference.notes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_preference.user %>
+</p>
+
+<p>
+  <strong>Sport:</strong>
+  <%= @user_preference.sport %>
+</p>
+
+<%= link_to 'Edit', edit_user_preference_path(@user_preference) %> |
+<%= link_to 'Back', user_preferences_path %>
