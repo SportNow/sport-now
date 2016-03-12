@@ -1,11 +1,67 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+---
+users_001:
+  id: '1'
+  email: noshenim@gmail.com
+  encrypted_password: "$2a$10$HUwOTTpPnypRVkoFz7S0neqHMCa8QPSHPff597Wg.7dzCmAN8Ebqe"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: '1'
+  current_sign_in_at: '2016-03-11 23:50:19.449869'
+  last_sign_in_at: '2016-03-11 23:50:19.449869'
+  current_sign_in_ip: 209.121.200.190
+  last_sign_in_ip: 209.121.200.190
+  created_at: '2016-03-11 23:50:19.446788'
+  updated_at: '2016-03-11 23:50:19.450475'
+  name: 
+  lat: 
+  lng: 
+  search_range: 
+  bio: 
+  birth_date: 
+  gender: 
+  image_id: 
+users_002:
+  id: '2'
+  email: sara@gmail.com
+  encrypted_password: "$2a$10$iIrqhzxbDfV6y7jCuJNabOqe2vXWAtyzfm9PvBtiQkswa7wzk.5vK"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: '1'
+  current_sign_in_at: '2016-03-11 23:50:58.471885'
+  last_sign_in_at: '2016-03-11 23:50:58.471885'
+  current_sign_in_ip: 209.121.200.190
+  last_sign_in_ip: 209.121.200.190
+  created_at: '2016-03-11 23:50:58.468997'
+  updated_at: '2016-03-11 23:50:58.472598'
+  name: 
+  lat: 
+  lng: 
+  search_range: 
+  bio: 
+  birth_date: 
+  gender: 
+  image_id: 
+users_003:
+  id: '3'
+  email: john@gmail.com
+  encrypted_password: "$2a$10$8YS2tr1/QvNrfLLalg9saO7S1VKnTOe9gZPP9Wi/6WipPJ88./fGu"
+  reset_password_token: 
+  reset_password_sent_at: 
+  remember_created_at: 
+  sign_in_count: '1'
+  current_sign_in_at: '2016-03-11 23:51:43.302911'
+  last_sign_in_at: '2016-03-11 23:51:43.302911'
+  current_sign_in_ip: 209.121.200.190
+  last_sign_in_ip: 209.121.200.190
+  created_at: '2016-03-11 23:51:43.300591'
+  updated_at: '2016-03-11 23:51:43.303442'
+  name: 
+  lat: 
+  lng: 
+  search_range: 
+  bio: 
+  birth_date: 
+  gender: 
+  image_id: 
