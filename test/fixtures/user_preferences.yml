@@ -3,11 +3,11 @@
 one:
   skill_level: 1
   notes: Love it
-  sport_id: <%= ActiveRecord::FixtureSet.identify(:soccer) %>
-  user_id: <%= ActiveRecord::FixtureSet.identify(:users_001) %>
+  sport_id: :soccer
+  user_id: :users_001
 
 two:
   skill_level: 3
   notes: Every Monday
-  sport_id: <%= ActiveRecord::FixtureSet.identify(:basketball) %>
-  user_id: <%= ActiveRecord::FixtureSet.identify(:users_002) %>
+  sport_id: :basketball
+  user_id: :users_002
