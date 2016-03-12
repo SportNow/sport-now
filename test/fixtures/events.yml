@@ -12,8 +12,8 @@ one:
   skill_min: 1
   skill_max: 1
   image_id: 
-  sport_id: 
-  user_id: 
+  sport_id: <%= ActiveRecord::FixtureSet.identify(:basketball) %>
+  user_id: <%= ActiveRecord::FixtureSet.identify(:users_002) %>
 
 two:
   headline: MyString
@@ -27,5 +27,6 @@ two:
   skill_min: 1
   skill_max: 1
   image_id: 
-  sport_id: 
-  user_id: 
+  sport_id: <%= ActiveRecord::FixtureSet.identify(:soccer) %>
+  user_id: <%= ActiveRecord::FixtureSet.identify(:users_001) %>
+

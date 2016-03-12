@@ -3,6 +3,11 @@ require 'test_helper'
 class UserPreferencesControllerTest < ActionController::TestCase
   setup do
     @user_preference = user_preferences(:one)
+
+#    @basketball = Sport.new(sports(:basketball))
+#    @basketball.save
+#    @soccer = Sport.new(sports(:soccer))
+#    @soccer.save
   end
 
   test "should get index" do

@@ -1,7 +1,7 @@
 ---
 users_001:
   id: '1'
-  email: noshenim@gmail.com
+  email: janet@gmail.com
   encrypted_password: "$2a$10$HUwOTTpPnypRVkoFz7S0neqHMCa8QPSHPff597Wg.7dzCmAN8Ebqe"
   reset_password_token: 
   reset_password_sent_at: 
@@ -24,7 +24,7 @@ users_001:
 users_002:
   id: '2'
   email: sara@gmail.com
-  encrypted_password: "$2a$10$iIrqhzxbDfV6y7jCuJNabOqe2vXWAtyzfm9PvBtiQkswa7wzk.5vK"
+  encrypted_password: "$2a$10$iIrqhzxbDfV6y7jCuJNabOqe2vXWAtyzfm9PvBtiQkswa7wzk.5vK" # "password"
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 
@@ -46,7 +46,7 @@ users_002:
 users_003:
   id: '3'
   email: john@gmail.com
-  encrypted_password: "$2a$10$8YS2tr1/QvNrfLLalg9saO7S1VKnTOe9gZPP9Wi/6WipPJ88./fGu"
+  encrypted_password: "$2a$10$8YS2tr1/QvNrfLLalg9saO7S1VKnTOe9gZPP9Wi/6WipPJ88./fGu" # "password"
   reset_password_token: 
   reset_password_sent_at: 
   remember_created_at: 

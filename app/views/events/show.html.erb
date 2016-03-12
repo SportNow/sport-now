@@ -57,12 +57,12 @@
 
 <p>
   <strong>Sport:</strong>
-  <%= @event.sport %>
+  <%= @event.sport.try{:name} %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @event.user %>
+  <%= @event.user.try{:name} %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

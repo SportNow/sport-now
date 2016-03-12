@@ -1,1 +1,12 @@
 --- {}
+
+basketball:
+  name: "basketball"
+  id: 1
+  description: "game with a large bouncy ball"
+
+soccer:
+  sport_id: 2
+  name: "soccer"
+  description: "goal is to kick a ball into a net"
+
