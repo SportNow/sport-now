@@ -7,7 +7,7 @@ one:
   lng: 1.5
   address: MyString
   datetime: 2016-03-09 06:35:06
-  type: 
+  is_competitive: false
   max_seats: 1
   skill_min: 1
   skill_max: 1
@@ -22,7 +22,7 @@ two:
   lng: 1.5
   address: MyString
   datetime: 2016-03-09 06:35:06
-  type: 
+  is_competitive: true
   max_seats: 1
   skill_min: 1
   skill_max: 1
