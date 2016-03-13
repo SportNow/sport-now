@@ -4,7 +4,10 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences
   # GET /user_preferences.json
   def index
-    @user_preferences = UserPreference.all
+    user_id = params[:user_id]
+    @user = User.find(user_id)
+
+    @user_preferences = @user.user_preferences
   end
 
   # GET /user_preferences/1
@@ -14,6 +17,7 @@ class UserPreferencesController < ApplicationController
 
   # GET /user_preferences/new
   def new
+    @sports = Sport.all
     @user_preference = UserPreference.new
   end
 
@@ -24,17 +28,30 @@ class UserPreferencesController < ApplicationController
   # POST /user_preferences
   # POST /user_preferences.json
   def create
-    @user_preference = UserPreference.new(user_preference_params)
-
-    respond_to do |format|
-      if @user_preference.save
-        format.html { redirect_to @user_preference, notice: 'User preference was successfully created.' }
-        format.json { render :show, status: :created, location: @user_preference }
-      else
-        format.html { render :new }
-        format.json { render json: @user_preference.errors, status: :unprocessable_entity }
+    # @user_preference = UserPreference.new(user_preference_params)
+    sport_ids = params[:sport_ids]
+    skill_levels = params[:skill_levels]
+    sport_ids.each do |index, e|
+      unless UserPreference.where(user_id: current_user.id, sport_id: sport_ids[index]).exists?
+        new_preference = UserPreference.new
+        new_preference.sport_id = sport_ids[index]
+        new_preference.user_id = current_user.id
+        new_preference.skill_level = skill_levels[index]
+        new_preference.save
       end
     end
+
+    render json: true
+
+    # respond_to do |format|
+    #   if @user_preference.save
+    #     format.html { redirect_to @user_preference, notice: 'User preference was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user_preference }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user_preference.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /user_preferences/1
