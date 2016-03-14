@@ -7,7 +7,7 @@ class UserPreferencesController < ApplicationController
     user_id = params[:user_id]
     @user = User.find(user_id)
 
-    @user_preferences = @user.user_preferences
+    @user_preferences = @user.user_preferences.paginate(:page => params[:page])
   end
 
   # GET /user_preferences/1

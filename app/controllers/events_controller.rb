@@ -4,6 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    # user_id = params[:user_id]
+
     @events = Event.all
   end
 
