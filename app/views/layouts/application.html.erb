@@ -44,17 +44,8 @@
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3></h3>
-            <ul class="nav nav-list">
-              <li><%= link_to "Home", root_path %></li>
-              <%= render 'devise/menu/registration_items' %>
-              <%= render 'devise/menu/login_items' %>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
       </div><!--/row-->
     </div> <!-- /container -->
     </nav>
