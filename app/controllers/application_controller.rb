@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 private
 
   def require_login
-    if !current_user && !(action_name == 'new' || action_name == 'create') && controller_name != 'sessions'
+    if !current_user && !(action_name == 'new' || action_name == 'create') && controller_name != 'sessions' && controller_name != 'omniauth_callbacks'
      redirect_to new_user_session_path, notice: 'You are not logged in.'
     end
   end
