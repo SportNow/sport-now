@@ -1,69 +1,102 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportNow Event</title>
 
-<p>
-  <strong>Headline:</strong>
-  <%= @event.headline %>
-</p>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="js/jquery-1.12.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/bootstrap-slider.min.js"></script>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @event.lat %>
-</p>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/css/bootstrap-slider.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-<p>
-  <strong>Lng:</strong>
-  <%= @event.lng %>
-</p>
+  <!--sport-now-->
+  <link rel="stylesheet" type="text/css" href="css/sport-now-sportselect.css">
 
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
+</head>
+<body>
 
-<p>
-  <strong>Datetime:</strong>
-  <%= @event.datetime %>
-</p>
+<div class="sidebar">
+  <ul class="vert-one">
+    <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
+    <p style="color:white; text-align:center;"><%= current_user.email %></p>
+    <li><a href="#" title="CSS Menus">User Profile</a></li>
+    <li><a href="#" title="CSS Menus" class="current">SportsFeed</a></li>
+    <li><a href="#" title="CSS Menus">About</a></li>
+    <li><a href="#" title="CSS Menus">Settings</a></li>
+    <li><a href="#" title="CSS Menus">Logout</a></li>
+  </ul>
+  <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
+</div><!--End of sidebar-->
 
-<p>
-  <strong>Is competitive:</strong>
-  <%= @event.is_competitive %>
-</p>
+<div class="container">
+  <div  id="header-color" class="jumbotron">
+    <h1>SportNow</h1>
+</div>
 
-<p>
-  <strong>Max seats:</strong>
-  <%= @event.max_seats %>
-</p>
+<div class="col-md-1"></div>
+<div class="center-content col-md-10">
+  <h1><%= @event.headline %></h1>
+  <div class="panel panel-default event-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h2>About the Event</h2>
+    </div>
+    <div class="panel-body">
+      <%= @event.description %>
+    </div>
+  </div>
 
-<p>
-  <strong>Skill min:</strong>
-  <%= @event.skill_min %>
-</p>
+  <div class="map-placeholder">
+    <%= image_tag("map.png", :width => "400px") %>
+  </div>
 
-<p>
-  <strong>Skill max:</strong>
-  <%= @event.skill_max %>
-</p>
+  <div class="panel panel-default attendee-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <h3>Attendees</h3>
+    </div>
+    <div class="panel-body">
+      <!-- Table -->
+      <table class="table">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+        </tr>
+        <tr>
+          <td>Peter</td>
+          <td>Griffin</td>
+        </tr>
+        <tr>
+          <td>Lois</td>
+          <td>Griffin</td>
+        </tr>
+        <tr>
+          <td>Joe</td>
+          <td>Swanson</td>
+        </tr>
+        <tr>
+          <td>Cleveland</td>
+          <td>Brown</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @event.image %>
-</p>
-
-<p>
-  <strong>Sport:</strong>
-  <%= @event.sport.try{:name} %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user.try{:name} %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <div class="chat-here">
+    <textarea class="form-control" rows="3"></textarea>
+    <input type="submit" name="submit" value="Add Comment">
+  </div>
+</div><!--End of main content-->
+<div class="col-md-1"></div>
+</div>
+</body>
+</html>
