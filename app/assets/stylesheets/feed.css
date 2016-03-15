@@ -1,5 +1,5 @@
 body {
-    background: url(background-image.jpg) no-repeat center center fixed;
+    background: url(background-image.jpg) no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -49,13 +49,6 @@ span.text-content {
 .image {
    position: relative;
    width: 100%; /* for IE 6 */
-}
-
-h2 {
-   position: absolute;
-   top: 100px;
-   left: 5%;
-   width: 100%;
 }
 
 .sport-label {
