@@ -50,6 +50,7 @@
               <div class="col-lg-4 col-md-6 col-xs-12 event_thumbnail">
                 <h3><%= event.headline %></h3>
                 <p><%= event.description %></p>
+                <img src="<%= event.image.url %>">
                 <%= link_to "Event Page", event %>
               </div>
             <% end %>
