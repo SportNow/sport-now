@@ -10,6 +10,18 @@
 				  <%= f.error_notification %>
 					<form method="post" action="#" role="form">
 						<div class=row>
+							<div class="col-md-6">
+								<div class="form-group">
+									<%= f.input :first_name, :class => 'form-control' %>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<%= f.input :last_name, :class => 'form-control' %>
+								</div>
+							</div>
+						</div>
+						<div class=row>
 							<div class="col-md-12">
 									<%= f.input :email, required: true, :class => 'form-control' %>
 							</div>
