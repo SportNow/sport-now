@@ -15,7 +15,7 @@ h1 {
 .event_thumbnail {
 
   height: 300px;
-  overflow: hidden;
+  overflow: auto;
   background-color: white;
 
 }

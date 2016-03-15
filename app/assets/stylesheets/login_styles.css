@@ -31,15 +31,6 @@
   margin-right: 20px;
 }
 
-body {
-    background-image: url(/assets/basketball-court.jpg); no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: #FFF8DC;
-}
-
 #header-color {
     background-color: #990000;
     opacity: .9;
