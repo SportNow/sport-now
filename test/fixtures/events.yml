@@ -12,8 +12,8 @@ event_one:
   skill_min: 1
   skill_max: 1
   image: :image_baseball
-  sport_id: :soccer
-  user_id: :user_001
+  sport_id: 1
+  user_id: 1
 
 event_two:
   headline: MyString
@@ -27,6 +27,6 @@ event_two:
   skill_min: 1
   skill_max: 1
   image: :image_basketball
-  sport_id: :basketball
-  user_id: :user_002
+  sport_id: 2
+  user_id: 2
 

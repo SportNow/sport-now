@@ -1,1 +1,9 @@
---- {}
+---
+
+event_user_1:
+  user_id: 1
+  event_id: 1
+
+event_user_2:
+  user_id: 2
+  event_id: 2
