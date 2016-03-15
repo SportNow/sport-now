@@ -3,4 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :sport
   belongs_to :user
   has_many :users, through: :event_users
+
+  def image_url
+    if image then image.url else '' end
+  end
 end
