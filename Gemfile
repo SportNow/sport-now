@@ -54,3 +54,4 @@ gem 'rails_12factor', group: :production
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'devise'
+gem 'validates_timeliness', '~> 4.0'
