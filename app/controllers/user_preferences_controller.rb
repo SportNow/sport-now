@@ -4,7 +4,7 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences
   # GET /user_preferences.json
   def index
-    user_id = params[:user_id]
+    user_id = current_user.id
     @user = User.find(user_id)
 
     @user_preferences = @user.user_preferences.paginate(:page => params[:page])
@@ -13,6 +13,7 @@ class UserPreferencesController < ApplicationController
   # GET /user_preferences/1
   # GET /user_preferences/1.json
   def show
+    render :edit
   end
 
   # GET /user_preferences/new

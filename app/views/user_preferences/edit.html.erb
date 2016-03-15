@@ -1,6 +1,138 @@
-<h1>Editing User Preference</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportNow SportSelect</title>
 
-<%= render 'form' %>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 
-<%= link_to 'Show', @user_preference %> |
-<%= link_to 'Back', user_preferences_path %>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="js/jquery-1.12.0.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/bootstrap-slider.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/css/bootstrap-slider.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!--sport-now-->
+  <link rel="stylesheet" type="text/css" href="css/sport-now-sportselect.css">
+
+
+</head>
+<body>
+
+<div class="container">
+  <div  id="header-color" class="jumbotron">
+    <h1>SportNow</h1>
+  </div>
+
+  <div class="sport-now-main">
+    <h1 class="h1">SportSelect</h1>
+    <ul class="list-inline">
+      <li>
+        <div class="sport-container">
+          <img src="css/images/basketball-icon-mono.png" alt="basketball" id="hockey" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider1" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/soccer-icon-mono.png" alt="soccer" id="soccer" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider2" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/bicycle-icon-mono.png" alt="bicycle" id="bicycle" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider3" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/hockey-icon-mono.png" alt="hockey" id="hockey" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider4" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/tennis-icon-mono.png" alt="tennis" id="tennis" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider5" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/football-icon-mono.png" alt="football" id="football" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider6" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/running-icon-mono.png" alt="running" id="running" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider7" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/golf-icon-mono.png" alt="golf" id="golf" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider8" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="sport-container">
+          <img src="css/images/baseball-icon-mono.png" alt="baseball" id="baseball" class="sport-icon">
+          <i class="fa fa-check-circle fa-3x n_check"></i>
+          <div class=skill_level>
+            <p>SKILL LEVEL</p>
+            <input id="bootstrap-slider9" class=sportslider data-slider-id="bs1" type="text"/>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <button type="submit" id="align" class="btn btn-primary">Submit</button>
+
+  </div>
+
+</div>
+
+
+
+
+</body>
+</html>

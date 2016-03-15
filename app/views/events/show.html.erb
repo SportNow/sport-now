@@ -29,8 +29,8 @@
     <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
     <p style="color:white; text-align:center;"><%= current_user.email %></p>
     <li><a href="#" title="CSS Menus">User Profile</a></li>
-    <li><a href="#" title="CSS Menus" class="current">SportsFeed</a></li>
-    <li><a href="#" title="CSS Menus">Preferences</a></li>
+    <li><%= link_to('SportsFeed', events_path, :class => "current", :title => "CSS Menus") %></li>
+    <li><%= link_to('Preferences', user_preferences_path, :title => "CSS Menus") %></li>
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :title => "CSS Menus") %></li>
   </ul>
   <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
