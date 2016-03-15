@@ -6,8 +6,12 @@ class UserPreferencesController < ApplicationController
   def index
     user_id = current_user.id
     @user = User.find(user_id)
+    @sports = Sport.all
 
-    @user_preferences = @user.user_preferences.paginate(:page => params[:page])
+    @user_preferences = @user.user_preferences
+    @preferences_sports = {}
+    @user_preferences.each { |e| @preferences_sports[e.sport_id] = e}
+
   end
 
   # GET /user_preferences/1
@@ -32,17 +36,22 @@ class UserPreferencesController < ApplicationController
     # @user_preference = UserPreference.new(user_preference_params)
     sport_ids = params[:sport_ids]
     skill_levels = params[:skill_levels]
-    sport_ids.each do |index, e|
-      unless UserPreference.where(user_id: current_user.id, sport_id: sport_ids[index]).exists?
-        new_preference = UserPreference.new
-        new_preference.sport_id = sport_ids[index]
-        new_preference.user_id = current_user.id
-        new_preference.skill_level = skill_levels[index]
-        new_preference.save
+
+
+    if sport_ids
+      UserPreference.destroy_all "user_id = #{current_user.id}"
+      sport_ids.each do |index, e|
+        unless UserPreference.where(user_id: current_user.id, sport_id: sport_ids[index]).exists?
+          new_preference = UserPreference.new
+          new_preference.sport_id = sport_ids[index]
+          new_preference.user_id = current_user.id
+          new_preference.skill_level = skill_levels[index]
+          new_preference.save
+        end
       end
     end
 
-    render json: true
+    redirect_to user_preferences_url
 
     # respond_to do |format|
     #   if @user_preference.save

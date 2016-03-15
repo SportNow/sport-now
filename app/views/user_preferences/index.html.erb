@@ -5,101 +5,25 @@
 
   <div class="sport-now-main">
     <h1 class="h1">SportSelect</h1>
+    <%= form_tag do %>
     <ul class="list-inline">
-      <li>
-        <div class="sport-container">
-          <img src="/images/basketball-icon-mono.png" alt="basketball" id="hockey" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider1" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/soccer-icon-mono.png" alt="soccer" id="soccer" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider2" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/bicycle-icon-mono.png" alt="bicycle" id="bicycle" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider3" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/hockey-icon-mono.png" alt="hockey" id="hockey" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider4" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/tennis-icon-mono.png" alt="tennis" id="tennis" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider5" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/football-icon-mono.png" alt="football" id="football" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider6" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/running-icon-mono.png" alt="running" id="running" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider7" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/golf-icon-mono.png" alt="golf" id="golf" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider8" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="sport-container">
-          <img src="/images/baseball-icon-mono.png" alt="baseball" id="baseball" class="sport-icon">
-          <i class="fa fa-check-circle fa-3x n_check"></i>
-          <div class=skill_level>
-            <p>SKILL LEVEL</p>
-            <input id="bootstrap-slider9" class="sportslider" data-slider-id="bs1" type="text"/>
-          </div>
-        </div>
-      </li>
+      <% @sports.each_with_index do |sport, index| %>
+          <li>
+            <div class="sport-container">
+              <img src="<%= sport.image.url %>" alt="<%= sport.name %>" id="" class="sport-icon">
+              <i class="fa fa-check-circle fa-3x n_check <%= "active_sport" if @preferences_sports.has_key?(sport.id)%>"></i>
+              <div class="skill_level" data-index="<%= index %>" style="<%= @preferences_sports.has_key?(sport.id) ? "display: block;" : "display: none;"; %> ">
+                <p>SKILL LEVEL</p>
+                <input type="hidden" id="sport-<%= index %>" <%= "name=sport_ids[#{index}]" if @preferences_sports.has_key?(sport.id) %> value="<%= sport.id %>">
+                <input id="bootstrap-slider-<%= sport.id %>"  name="skill_levels[<%= index %>]" class="sportslider" value="<%= @preferences_sports[sport.id].skill_level if @preferences_sports.has_key?(sport.id) %>" data-slider-id="bs1" type="text" data-sport-id="<%= sport.id %>" />
+              </div>
+            </div>
+          </li>
+      <% end %>
     </ul>
 
     <button type="submit" id="align" class="btn btn-primary">Submit</button>
-
+    <% end %>
   </div>
 
 </div>
