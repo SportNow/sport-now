@@ -16,10 +16,11 @@ class UserPreferencesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:user_preferences)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  # NOTE: user_preferencess controller will be redesigned
+  #test "should get new" do
+  #  get :new
+  #  assert_response :success
+  #end
 
   test "should create user_preference" do
     assert_difference('UserPreference.count') do

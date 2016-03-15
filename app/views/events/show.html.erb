@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SportNow Event</title>
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="js/jquery-1.12.0.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="js/scripts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/bootstrap-slider.min.js"></script>
-
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/css/bootstrap-slider.min.css"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  <!--sport-now-->
-  <link rel="stylesheet" type="text/css" href="css/sport-now-sportselect.css">
-
-</head>
-<body>
-
 <div class="sidebar">
   <ul class="vert-one">
     <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
     <p style="color:white; text-align:center;"><%= current_user.email %></p>
-    <li><a href="#" title="CSS Menus">User Profile</a></li>
     <li><%= link_to('SportsFeed', events_path, :class => "current", :title => "CSS Menus") %></li>
     <li><%= link_to('Preferences', user_preferences_path, :title => "CSS Menus") %></li>
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :title => "CSS Menus") %></li>
@@ -97,5 +70,3 @@
 </div><!--End of main content-->
 <div class="col-md-1"></div>
 </div>
-</body>
-</html>
