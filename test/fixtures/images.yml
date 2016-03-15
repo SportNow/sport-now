@@ -1,1 +1,10 @@
---- {}
+---
+
+image_baseball:
+  url: 'baseball.jpg'
+
+image_basketball:
+  url: 'basketball.jpg'
+
+image_invalid:
+  url: 'NO_IMAGE_HERE.notanimage'
