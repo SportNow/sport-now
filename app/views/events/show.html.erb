@@ -30,9 +30,8 @@
     <p style="color:white; text-align:center;"><%= current_user.email %></p>
     <li><a href="#" title="CSS Menus">User Profile</a></li>
     <li><a href="#" title="CSS Menus" class="current">SportsFeed</a></li>
-    <li><a href="#" title="CSS Menus">About</a></li>
-    <li><a href="#" title="CSS Menus">Settings</a></li>
-    <li><a href="#" title="CSS Menus">Logout</a></li>
+    <li><a href="#" title="CSS Menus">Preferences</a></li>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :title => "CSS Menus") %></li>
   </ul>
   <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
 </div><!--End of sidebar-->
