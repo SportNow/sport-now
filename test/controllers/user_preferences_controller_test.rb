@@ -3,6 +3,11 @@ require 'test_helper'
 class UserPreferencesControllerTest < ActionController::TestCase
   setup do
     @user_preference = user_preferences(:one)
+    sign_in :user, users(:users_001)
+  end
+
+  teardown do
+    sign_out :user
   end
 
   test "should get index" do
