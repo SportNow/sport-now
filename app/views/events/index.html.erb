@@ -47,12 +47,15 @@
             </div>
 
             <% @events.each do |event| %>
-              <div class="col-lg-4 col-md-6 col-xs-12 event_thumbnail">
-                <h3><%= event.headline %></h3>
-                <p><%= event.description %></p>
-                <img src="<%= event.image.url %>">
-                <%= link_to "Event Page", event %>
+            <%= link_to(event) do %>
+              <div class="col-lg-4 col-md-6 col-xs-12 thumb">
+                  <div class="thumbnail">
+                    <h3><%= event.headline %></h3>
+                    <p><%= event.description %></p>
+                    <img src="<%= event.image.url %>" class="img-responsive icon">
+                  </div>
               </div>
+            <% end %>
             <% end %>
           </div>
         <hr>

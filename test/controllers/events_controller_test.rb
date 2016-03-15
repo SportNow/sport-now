@@ -3,6 +3,11 @@ require 'test_helper'
 class EventsControllerTest < ActionController::TestCase
   setup do
     @event = events(:one)
+    sign_in :user, users(:users_001)
+  end
+
+  teardown do
+    sign_out :user
   end
 
   test "should get index" do

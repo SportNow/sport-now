@@ -13,7 +13,6 @@ users_001:
   last_sign_in_ip: 209.121.200.190
   created_at: '2016-03-11 23:50:19.446788'
   updated_at: '2016-03-11 23:50:19.450475'
-  name: 
   lat: 
   lng: 
   search_range: 
@@ -35,7 +34,6 @@ users_002:
   last_sign_in_ip: 209.121.200.190
   created_at: '2016-03-11 23:50:58.468997'
   updated_at: '2016-03-11 23:50:58.472598'
-  name: 
   lat: 
   lng: 
   search_range: 
@@ -57,7 +55,6 @@ users_003:
   last_sign_in_ip: 209.121.200.190
   created_at: '2016-03-11 23:51:43.300591'
   updated_at: '2016-03-11 23:51:43.303442'
-  name: 
   lat: 
   lng: 
   search_range: 
