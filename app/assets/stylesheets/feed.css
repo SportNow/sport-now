@@ -1,0 +1,21 @@
+h1 {
+    color: white;
+}
+
+.icon {
+
+  opacity: 0.8;
+
+}
+
+.icon:hover{
+    opacity: 1;
+}
+
+.event_thumbnail {
+
+  height: 300px;
+  overflow: hidden;
+  background-color: white;
+
+}
