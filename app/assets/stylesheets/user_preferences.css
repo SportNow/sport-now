@@ -1,0 +1,18 @@
+
+.n_check {
+
+  visibility: hidden;
+
+}
+
+.active_sport {
+
+  visibility: visible;
+  color: green;
+
+}
+
+
+li {
+    overflow:auto;
+}
