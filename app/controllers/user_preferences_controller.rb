@@ -51,7 +51,7 @@ class UserPreferencesController < ApplicationController
       end
     end
 
-    redirect_to user_preferences_url
+    redirect_to events_path
 
     # respond_to do |format|
     #   if @user_preference.save
