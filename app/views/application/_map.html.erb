@@ -21,12 +21,14 @@
 <script>
 var address_marker = undefined;
 var address_map = undefined;
+var address_geocoder = undefined;
 function initMap() {
   address_map = new google.maps.Map(document.getElementById('map'), {
     zoom: 2,
     center: {lat: 20, lng: -120}
   });
   var geocoder = new google.maps.Geocoder();
+  address_geocoder = geocoder;
   $('#address-control').keypress(function(e) {
     if (e.keyCode == '13') {
       e.preventDefault();
@@ -62,7 +64,26 @@ function setAddress(position, resultsMap) {
       position: position,
       draggable: true
     });
+    address_marker.addListener("dragend", getAddress);
   }
+  getAddress({'latLng': new google.maps.LatLng(position.lat(), position.lng())});
+}
+
+function getAddress(e) {
+  pos = e.latLng;
+  address_geocoder.geocode({'location': {lat: pos.lat(), lng: pos.lng()}}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        $("#address-control").attr("value", (results[1].formatted_address));
+      } else {
+        $("#address-control").attr("value", "");
+        console.log('No results found');
+      }
+    } else {
+      $("#address-control").attr("value", "");
+      console.warn('Geocoder failed due to: ' + status);
+    }
+  });
 }
 
 $(document).ready(function(){
@@ -72,20 +93,8 @@ $(document).ready(function(){
       setAddress(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), address_map);
     });
   });
-  $("#new_user").submit( function(eventObj) {
-      if (address_marker) {
-      $('<input />').attr('type', 'hidden')
-        .attr('name', 'user[lat]')
-        .attr('value', address_marker.getPosition().lat())
-        .appendTo('#new_user');
-      $('<input />').attr('type', 'hidden')
-        .attr('name', 'user[lng]')
-        .attr('value', address_marker.getPosition().lng())
-        .appendTo('#new_user');
-      }
-    return true;
-  });
 });
+
 </script>
 <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API_KEY"]%>&callback=initMap">-->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvHY-_FELNd16XllRKyknT-BJ-WyfoQN0&callback=initMap">

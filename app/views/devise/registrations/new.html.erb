@@ -8,61 +8,80 @@
   <div class="jumbotron back">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-        <div class=row>
+      <div class=row>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.input :first_name, :class => 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.input :last_name, :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class="col-md-12">
+          <%= f.input :email, required: true, :class => 'form-control' %>
+        </div>
+      </div>
+      <div class=row>
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.input :password, required: true, :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.input :password_confirmation, required: true, :class => 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="dateofbirth">Date of Birth:</label>
+            <input type="date" class="form-control" name=user[birth_date] id="user_date" placeholder="Date of Birth">
+          </div>
+        </div>
           <div class="col-md-6">
             <div class="form-group">
-              <%= f.input :first_name, :class => 'form-control' %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= f.input :last_name, :class => 'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class=row>
-          <div class="col-md-12">
-              <%= f.input :email, required: true, :class => 'form-control' %>
-          </div>
-        </div>
-        <div class=row>
-          <div class="col-md-12">
-            <div class="form-group">
-              <%= f.input :password, required: true, :class => 'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class=row>
-          <div class="col-md-12">
-            <div class="form-group">
-              <%= f.input :password_confirmation, required: true, :class => 'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class=row>
-          <div class="col-md-6">
-            <div class="form-group">
-                <label for="dateofbirth">Date of Birth:</label>
-                <input type="date" class="form-control" name=user[birth_date] id="user_date" placeholder="Date of Birth">
-            </div>
-          </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="gender">Gender:</label>
+              <label for="gender">Gender:</label>
               <select name=user[gender] id=user_gender class="form-control">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
                 <option value="not_disclosed">Prefer not to disclose</option>
               </select>
-              </div>
             </div>
-        </div>
-        <%= render "application/map" %>
-        <div class="text-center">
-          <div class="form-actions">
-            <input type="submit" name="commit" value="Sign up" class="btn btn-default" />
           </div>
+      </div>
+      <%= render "application/map" %>
+      <div class="text-center">
+        <div class="form-actions">
+          <input type="submit" name="commit" value="Sign up" class="btn btn-default" />
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#new_user").submit( function(eventObj) {
+    if (address_marker) {
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lat]')
+        .attr('value', address_marker.getPosition().lat())
+        .appendTo('#new_user');
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lng]')
+        .attr('value', address_marker.getPosition().lng())
+        .appendTo('#new_user');
+    }
+    return true;
+  });
+});
+</script>
