@@ -1,0 +1,92 @@
+<div class="form-group">
+  <label for="address">Address:</label>
+  <input class="form-control" id="address-control" type="textbox" value="">
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-6">
+      <input id="address-submit" class="btn btn-default" type="button" value="Search">
+    </div>
+    <div class="col-sm-6">
+      <input id="address-current" class="btn btn-default" type="button" value="Use Current Location">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div id="map"></div>
+</div>
+
+<script>
+var address_marker = undefined;
+var address_map = undefined;
+function initMap() {
+  address_map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2,
+    center: {lat: 20, lng: -120}
+  });
+  var geocoder = new google.maps.Geocoder();
+  $('#address-control').keypress(function(e) {
+    if (e.keyCode == '13') {
+      e.preventDefault();
+    geocodeAddress(geocoder, address_map);
+    }
+  });
+  $('#address-submit').click(function(e) {
+    geocodeAddress(geocoder, address_map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address-control').value;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var position = results[0].geometry.location;
+      setAddress(position, resultsMap);
+    } else {
+      console.warn('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+// Updates the marker to match the address
+function setAddress(position, resultsMap) {
+  $("#map").css("display", "block");
+  resultsMap.setCenter(position);
+  if (address_marker) {
+    address_marker.setPosition(position);
+  } else {
+    address_marker = new google.maps.Marker({
+      map: resultsMap,
+      position: position,
+      draggable: true
+    });
+  }
+}
+
+$(document).ready(function(){
+  // When you click "Use Current Address," set the lat/lng to the navigator geolocation
+  $("#address-current").click(function(){
+    navigator.geolocation.getCurrentPosition(function(position){
+      setAddress(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), address_map);
+    });
+  });
+  $("#new_user").submit( function(eventObj) {
+      if (address_marker) {
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lat]')
+        .attr('value', address_marker.getPosition().lat())
+        .appendTo('#new_user');
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lng]')
+        .attr('value', address_marker.getPosition().lng())
+        .appendTo('#new_user');
+      }
+    return true;
+  });
+});
+</script>
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_API_KEY"]%>&callback=initMap">-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvHY-_FELNd16XllRKyknT-BJ-WyfoQN0&callback=initMap">
+</script>
