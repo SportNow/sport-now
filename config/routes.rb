@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :events
+  get "/events/:id/join" => "events#join"
   resources :user_preferences
   root 'events#index'
 
