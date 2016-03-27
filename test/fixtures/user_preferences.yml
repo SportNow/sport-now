@@ -20,6 +20,12 @@ too_skilled:
 
 no_skills:
   skill_level: -1
-  notes: "I'm the best"
+  notes: "I'm the worst"
   sport_id: :basketball
   user_id: :users_001
+
+join_event_user_preference:
+  skill_level: 3
+  notes: "Nothin"
+  sport_id: 2
+  user_id: 6

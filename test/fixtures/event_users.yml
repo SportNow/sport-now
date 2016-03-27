@@ -7,3 +7,11 @@ event_user_1:
 event_user_2:
   user_id: 2
   event_id: 2
+
+event_filler:
+  user_id: 1
+  event_id: 6
+
+already_joined:
+  user_id: 6
+  event_id: 7
