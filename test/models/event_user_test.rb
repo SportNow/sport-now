@@ -2,8 +2,10 @@ require 'test_helper'
 
 class EventUserTest < ActiveSupport::TestCase
   test "event_users should be valid" do
-    assert event_users(:event_user_1).valid?
-    assert event_users(:event_user_2).valid?
+    @event_user = event_users(:event_user_1)
+    assert @event_user.valid?, @event_user.errors.full_messages
+    @event_user = event_users(:event_user_2)
+    assert @event_user.valid?, @event_user.errors.full_messages
   end
 
   test "event_users need a user" do

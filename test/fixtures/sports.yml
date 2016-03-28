@@ -9,3 +9,7 @@ soccer:
   name: "soccer"
   description: "goal is to kick a ball into a net"
 
+hockey:
+  id: 3
+  name: "hockey"
+  description: "skates and nets"

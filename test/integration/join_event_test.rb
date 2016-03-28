@@ -20,21 +20,37 @@ class JoinEventTest < ActionDispatch::IntegrationTest
   end
 
   test "joining an event while logged out should fail" do
+    @event = events(:joinable_event_1)
+    do_sign_out
+    do_join_event
+    assert_redirected_to "/users/sign_in"
+    do_sign_in
   end
 
   test "joining a past event should fail" do
+    @event = events(:past_event_1)
+    assert_no_difference('EventUser.count') do
+      do_join_event
+    end
   end
 
   test "joining an event with the wrong skill should fail" do
+    assert_cannot_join_event :difficult_event_1
   end
 
   test "joining a full event should fail" do
+    assert_cannot_join_event :full_event_1
   end
 
   test "joining a joined event should fail" do
+    assert_cannot_join_event :joined_event_1
   end
 
   test "joining a joinable event should work" do
+      @event = events(:joinable_event_1)
+      assert_difference('EventUser.count') do
+        do_join_event
+      end
   end
 
   private
@@ -45,5 +61,16 @@ class JoinEventTest < ActionDispatch::IntegrationTest
 
     def do_sign_out
       delete "/users/sign_out"
+    end
+
+    def do_join_event
+      post "/events/" + @event.id.to_s + "/join"
+    end
+
+    def assert_cannot_join_event(event)
+      @event = events(event)
+      assert_no_difference('EventUser.count') do
+        do_join_event
+      end
     end
 end

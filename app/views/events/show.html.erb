@@ -64,7 +64,8 @@
   </div>
 
   <div class="join-event-wrapper">
-    <%= link_to "Join Event", { id: @event, action: "join" }, class: "btn btn-default" %>
+    <%= link_to "Join Event", { id: @event, action: "join" }, class: "btn btn-default", "data-method": "post" %>
+    <%= link_to "Leave Event", { id: @event, action: "leave" }, class: "btn btn-default", "data-method": "post" %>
   </div>
 
   <div class="chat-here">

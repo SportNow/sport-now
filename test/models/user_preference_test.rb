@@ -9,7 +9,11 @@ class UserPreferenceTest < ActiveSupport::TestCase
     assert @user_preference.valid?
   end
 
-  test "should not be valid if no skills" do
+  test "should be invalid if no skills" do
     assert_not user_preferences(:no_skills).valid?
+  end
+
+  test "should be invalid if too skilled" do
+    assert_not user_preferences(:too_skilled).valid?
   end
 end

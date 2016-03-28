@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :events
-  get "/events/:id/join" => "events#join"
+  post "/events/:id/join" => "events#join"
+  post "/events/:id/leave" => "events#leave"
   resources :user_preferences
   root 'events#index'
 
