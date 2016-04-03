@@ -1,10 +1,4 @@
-<div class="container">
-  <div  id="header-color" class="jumbotron">
-    <h1>SportNow</h1>
-  </div>
-
   <div class="sport-now-main">
-    <h1 class="h1">SportSelect</h1>
     <%= form_tag do %>
     <ul class="list-inline">
       <% @sports.each_with_index do |sport, index| %>
@@ -21,9 +15,6 @@
           </li>
       <% end %>
     </ul>
-
     <button type="submit" id="align" class="btn btn-primary">Save</button>
     <% end %>
   </div>
-
-</div>

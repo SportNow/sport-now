@@ -1,21 +1,4 @@
-<div class="sidebar">
-  <ul class="vert-one">
-    <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
-    <p style="color:white; text-align:center;"><%= current_user.email %></p>
-    <li><%= link_to('SportsFeed', events_path, :class => "current", :title => "CSS Menus") %></li>
-    <li><%= link_to('Preferences', user_preferences_path, :title => "CSS Menus") %></li>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :title => "CSS Menus") %></li>
-  </ul>
-  <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
-</div><!--End of sidebar-->
-
-<div class="container">
-  <div  id="header-color" class="jumbotron">
-    <h1>SportNow</h1>
-</div>
-
-<div class="col-md-1"></div>
-<div class="center-content col-md-10">
+<div class="center-content">
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
 
@@ -30,7 +13,4 @@
       <%= f.button :submit %>
     </div>
   <% end %>
-
-</div><!--End of main content-->
-<div class="col-md-1"></div>
 </div>

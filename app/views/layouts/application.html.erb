@@ -41,13 +41,23 @@
     <nav>
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-<!--           <ul class="hmenu">
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
-          </ul> -->
+        <div class="col-md-3">
+          <%= render "layouts/sidebar" %>
+        </div>
+        <div class="col-md-9">
+          <div id=banner>
+            <h1>SportNow</h1>
+            <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary">CREATE NEW EVENT</button><% end %>
+            <hr>
+          </div>
+          <div id=content-window>
+            <%= bootstrap_flash %>
+            <%= yield %>
+  <!--           <ul class="hmenu">
+              <%= render 'devise/menu/registration_items' %>
+              <%= render 'devise/menu/login_items' %>
+            </ul> -->
+          </div>
         </div>
       </div><!--/row-->
     </div> <!-- /container -->
