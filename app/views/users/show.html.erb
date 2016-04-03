@@ -1,0 +1,80 @@
+<div class="col-md-1"></div>
+<div class="center-content col-md-10">
+  <h1><%= @user.email %></h1>
+
+
+  <div class="user-profile">
+
+    <ul class="list-inline">
+      <li>
+        <div class="user-placeholder">
+          <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
+          <div class="fileUpload btn btn-primary">
+              <span>Update Profile Picture</span>
+              <input type="file" class="upload" />
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="panel panel-default user-info">
+
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <h4>User Description:</h4>
+          </div>
+          <div class="panel-body">
+            <h4>Age: <%=
+              def age(dob)
+                now = Time.now.utc.to_date
+                now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+              end
+
+              age(@user.birth_date)
+              %> </h4>
+
+            <h4>Gender: <%= @user.gender %> </h4>
+
+            <h4>Location: <span id=city></span> </h4>
+
+            <h4>More Info:</h4>
+            <div id="edit-me-4">We can write about the event in here. Whatever we want to write about.
+            Hi! My name is Bobby and I like making friends and having fun. Do you like having fun?</div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="panel panel-default user-sport-info">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <h4>Sport Interests:</h4>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <li>Basketball</li>
+              <li>Hockey</li>
+              <li>Soccer</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div><!--End of main content-->
+<div class="col-md-1"></div>
+
+</div>
+
+<script>
+  lat = <%= @user.lat %>
+  long = <%= @user.lng %>
+  $.ajax({
+      url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&sensor=false',
+      success: function(data){
+          var formatted = data.results;
+          var address_array = formatted[6].formatted_address.split(',');
+          var city = address_array[0];
+          document.getElementById("city").innerHTML = city;
+     }
+  });
+</script>

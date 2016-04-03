@@ -62,7 +62,11 @@ function setAddress(position, resultsMap) {
     address_marker = new google.maps.Marker({
       map: resultsMap,
       position: position,
-      draggable: true
+      zoom: 14,                        // set the zoom level manually
+      zoomControl: false,
+      scaleControl: false,
+      scrollwheel: false,
+      disableDoubleClickZoom: true,
     });
     address_marker.addListener("dragend", getAddress);
   }

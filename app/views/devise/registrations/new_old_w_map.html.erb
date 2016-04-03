@@ -20,12 +20,14 @@
     </div>
   </div>
   <div class=row>
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.input :password, required: true, :class => 'form-control' %>
       </div>
     </div>
-    <div class="col-md-6">
+  </div>
+  <div class=row>
+    <div class="col-md-12">
       <div class="form-group">
         <%= f.input :password_confirmation, required: true, :class => 'form-control' %>
       </div>
@@ -50,18 +52,7 @@
         </div>
       </div>
   </div>
-  <div class=row>
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.input :lat, required: true, :class => 'form-control', :id => "lat" %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.input :lng, required: true, :class => 'form-control', :id => "lng" %>
-      </div>
-    </div>
-  </div>
+  <%= render "map" %>
   <div class="text-center">
     <div class="form-actions">
       <input type="submit" name="commit" value="Sign up" class="btn btn-default" />
@@ -69,49 +60,20 @@
   </div>
 <% end %>
 
-<div id="mapholder"></div>
-
 <script>
-
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+$(document).ready(function(){
+  $("#new_user").submit( function(eventObj) {
+    if (address_marker) {
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lat]')
+        .attr('value', address_marker.getPosition().lat())
+        .appendTo('#new_user');
+      $('<input />').attr('type', 'hidden')
+        .attr('name', 'user[lng]')
+        .attr('value', address_marker.getPosition().lng())
+        .appendTo('#new_user');
     }
-}
-
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x200&sensor=fakse";
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-
-    document.getElementById("user_lat").value = position.coords.latitude;
-    document.getElementById("user_lng").value = position.coords.longitude;
-}
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
-
-$( document ).ready(function() {
-    getLocation();
+    return true;
+  });
 });
 </script>
