@@ -24,7 +24,9 @@ class UserPreferencesControllerTest < ActionController::TestCase
 
   test "should create user_preference" do
     assert_difference('UserPreference.count') do
-      post :create, user_preference: { notes: @user_preference.notes, user_id: @user_preference.user_id }, skill_levels: {"0": @user_preference.skill_level}, sport_ids: {"0": @user_preference.sport_id}
+      sign_in :user, User.find(4)
+      post :create, user_preference: { notes: @user_preference.notes }, skill_levels: {"0": @user_preference.skill_level}, sport_ids: {"0": @user_preference.sport_id}
+      sign_out :user
     end
 
     # assert_redirected_to user_preference_path(assigns(:user_preference))
@@ -33,7 +35,9 @@ class UserPreferencesControllerTest < ActionController::TestCase
   test "should reject user_preference with too much skill" do
     assert_no_difference('UserPreference.count') do
       @bad_user_preference = user_preferences(:too_skilled)
-      post :create, user_preference: { notes: @bad_user_preference.notes, user_id: @bad_user_preference.user_id }, skill_levels: {"0" => @bad_user_preference.skill_level}, sport_ids: {"0": @bad_user_preference.sport_id}
+      sign_in :user, User.find(5)
+      post :create, user_preference: { notes: @bad_user_preference.notes}, skill_levels: {"0" => @bad_user_preference.skill_level}, sport_ids: {"0": @bad_user_preference.sport_id}
+      sign_out :user
     end
   end
 
@@ -49,11 +53,6 @@ class UserPreferencesControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, id: @user_preference
     assert_response :success
-  end
-
-  test "should update user_preference" do
-    patch :update, id: @user_preference, user_preference: { notes: @user_preference.notes, user_id: @user_preference.user_id }, skill_levels: @user_preference.skill_level, sport_ids: @user_preference.sport_id
-    assert_redirected_to user_preference_path(assigns(:user_preference))
   end
 
   test "should destroy user_preference" do

@@ -63,10 +63,16 @@
     </div>
   </div>
 
+  <div class="join-event-wrapper">
+    <%= link_to "Join Event", { id: @event, action: "join" }, class: "btn btn-default", "data-method": "post" %>
+    <%= link_to "Leave Event", { id: @event, action: "leave" }, class: "btn btn-default", "data-method": "post" %>
+  </div>
+
   <div class="chat-here">
     <textarea class="form-control" rows="3"></textarea>
     <input type="submit" name="submit" value="Add Comment">
   </div>
+
 </div><!--End of main content-->
 <div class="col-md-1"></div>
 </div>

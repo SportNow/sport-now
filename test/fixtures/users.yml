@@ -17,7 +17,7 @@ users_001:
   lng: 
   search_range: 
   bio: 
-  birth_date: 
+  birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
   image_id: 
 users_002:
@@ -38,7 +38,7 @@ users_002:
   lng: 
   search_range: 
   bio: 
-  birth_date: 
+  birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
   image_id: 
 users_003:
@@ -59,6 +59,21 @@ users_003:
   lng: 
   search_range: 
   bio: 
-  birth_date: 
+  birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
   image_id: 
+user_just_old_enough:
+  id: '4'
+  email: johnny@gmail.com
+  encrypted_password: "$2a$10$8YS2tr1/QvNrfLLalg9saO7S1VKnTOe9gZPP9Wi/6WipPJ88./fGu" # "password"
+  birth_date: <%= 8.years.ago.to_s(:db) %>
+user_too_young:
+  id: '5'
+  email: billy@gmail.com
+  encrypted_password: "$2a$10$8YS2tr1/QvNrfLLalg9saO7S1VKnTOe9gZPP9Wi/6WipPJ88./fGu" # "password"
+  birth_date: <%= Time.now.to_s(:db) %>
+join_event_test_user:
+  id: '6'
+  email: bimbo@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password!') %>
+  birth_date: <%= 21.years.ago.to_s(:db) %>

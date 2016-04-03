@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :join, :leave]
 
   # GET /events
   # GET /events.json
@@ -58,10 +58,46 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    EventUser.where(event_id: @event.id).each do |event_user|
+      event_user.destroy
+    end
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # POST /events/1/join
+  def join
+    respond_to do |format|
+      if (Time.now > @event.datetime)
+        format.html { render :show }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      else
+        @event_user = EventUser.new(user_id: current_user.id, event_id: @event.id)
+        if @event_user.save
+          format.html { redirect_to @event, notice: 'You have joined the event: ' + @event.headline }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { render :show }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+
+  # POST /events/1/leave
+  def leave
+    @event_user = EventUser.find_by user_id: current_user.id, event_id: @event.id
+    respond_to do |format|
+      if @event_user.destroy
+        format.html { redirect_to @event, notice: 'You have left the event: ' + @event.headline }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :show }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   resources :events
+  post "/events/:id/join" => "events#join"
+  post "/events/:id/leave" => "events#leave"
   resources :user_preferences
   root 'events#index'
 
   # devise_for :users
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks",
+                                       :registrations => "registrations" }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

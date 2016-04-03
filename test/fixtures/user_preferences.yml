@@ -3,23 +3,40 @@
 one:
   skill_level: 1
   notes: "Love it"
-  sport_id: :soccer
-  user_id: :users_001
+  sport_id: 1
+  user_id: 1
 
 two:
   skill_level: 3
   notes: "Every Monday"
-  sport_id: :basketball
-  user_id: :users_002
+  sport_id: 1
+  user_id: 2
+
+red:
+  skill_level: 1
+  sport_id: 2
+  user_id: 1
+
+blue:
+  skill_level: 1
+  sport_id: 2
+  user_id: 2
+
 
 too_skilled:
   skill_level: 11 
   notes: "I'm the best"
-  sport_id: :basketball
-  user_id: :users_001
+  sport_id: 3
+  user_id: 2
 
 no_skills:
   skill_level: -1
-  notes: "I'm the best"
-  sport_id: :basketball
-  user_id: :users_001
+  notes: "I'm the worst"
+  sport_id: 3
+  user_id: 2
+
+join_event_user_preference:
+  skill_level: 3
+  notes: "Nothin"
+  sport_id: 2
+  user_id: 6

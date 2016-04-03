@@ -2,7 +2,8 @@
 
 Contributors:
 
-Gavin Haynes
-Kevin Wu
-Matthew Tan
-Walid A-h
+- Gavin Haynes
+- Kevin Wu
+- Matthew Tan
+- Walid A-h
+- Nima Boscarino
