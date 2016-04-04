@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.image_id = Image.first.id
+    @event.user_id = current_user.id
 
     respond_to do |format|
       if @event.save

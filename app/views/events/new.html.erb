@@ -1,11 +1,12 @@
 <div class="center-content">
   <%= simple_form_for(@event) do |f| %>
     <%= f.error_notification %>
+    <%= @event.errors.full_messages.first if @event.errors.any? %>
 
     <div class="form-inputs">
       <%= f.input :headline %>
       <%= f.datetime_select :datetime %>
-      <%= f.input :sport, collection: @sports %>
+      <%= f.association :sport %>
       <%= f.input :description %>
     </div>
 
