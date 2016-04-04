@@ -36,7 +36,9 @@ gem 'omniauth-facebook'
 
 # Use YamlDb to create fixtures
 gem 'yaml_db'
-
+gem 'aws-sdk'
+gem 'carrierwave'
+gem "fog"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
