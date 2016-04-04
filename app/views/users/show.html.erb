@@ -48,11 +48,11 @@
           <div class="panel-heading">
             <h4>Sport Interests:</h4>
           </div>
-          <div class="panel-body">
+          <div>
             <ul>
-              <li>Basketball</li>
-              <li>Hockey</li>
-              <li>Soccer</li>
+              <% @user.user_preferences.each do |preference| %>
+                <li><%= @sport.find(preference.sport_id).name %> Skill: <%= preference.skill_level %></li>
+              <% end %>
             </ul>
           </div>
         </div>
