@@ -10,4 +10,13 @@ class Event < ActiveRecord::Base
   def image_url
     if image then image.url else '' end
   end
+
+  def image=(value)
+    image = Image.new
+    logger.info value
+    image.url = value
+    image.save!
+
+    write_attribute(:image_id, image.id)
+  end
 end
