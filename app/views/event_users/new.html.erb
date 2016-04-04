@@ -1,0 +1,6 @@
+<h1>New Event User</h1>
+<%= @event_user.errors.full_messages.first if @event_user.errors.any? %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', event_users_path %>

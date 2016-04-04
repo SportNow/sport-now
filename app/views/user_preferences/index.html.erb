@@ -1,16 +1,10 @@
-<div class="container">
-  <div  id="header-color" class="jumbotron">
-    <h1>SportNow</h1>
-  </div>
-
   <div class="sport-now-main">
-    <h1 class="h1">SportSelect</h1>
     <%= form_tag do %>
     <ul class="list-inline">
       <% @sports.each_with_index do |sport, index| %>
           <li>
             <div class="sport-container">
-              <img src="<%= if sport.image != nil then sport.image.url end %>" alt="<%= sport.name %>" id="" class="sport-icon">
+              <img src="<%= sport.image_url %>" alt="<%= sport.name %>" id="" class="sport-icon">
               <i class="fa fa-check-circle fa-3x n_check <%= "active_sport" if @preferences_sports.has_key?(sport.id)%>"></i>
               <div class="skill_level" data-index="<%= index %>" style="<%= @preferences_sports.has_key?(sport.id) ? "display: block;" : "display: none;"; %> ">
                 <p>SKILL LEVEL</p>
@@ -21,9 +15,6 @@
           </li>
       <% end %>
     </ul>
-
     <button type="submit" id="align" class="btn btn-primary">Save</button>
     <% end %>
   </div>
-
-</div>

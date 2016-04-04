@@ -1,78 +1,102 @@
-<div class="sidebar">
-  <ul class="vert-one">
-    <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
-    <p style="color:white; text-align:center;"><%= current_user.email %></p>
-    <li><%= link_to('SportsFeed', events_path, :class => "current", :title => "CSS Menus") %></li>
-    <li><%= link_to('Preferences', user_preferences_path, :title => "CSS Menus") %></li>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :title => "CSS Menus") %></li>
+<div id="sport-event" class="center-content">
+  <!--
+  id
+  headline
+  description
+  lat
+  lng
+  address
+  datetime
+  is_competitive
+  max_seats
+  skill_min
+  skill_max
+  image_id
+  sport_id
+  user_id
+  created_at
+  update_at
+  -->
+  <%= image_tag("stadium.jpg", :id => "event-img") %>
+  <h1 id="event-headline"><%= @event.headline %>
+    <% if @event.is_competitive? %>
+      <span class="label label-warning">Competitive</span>
+    <% else %>
+      <span class="label label-info">Recreational</span>
+    <% end %>
+  </h1>
+  <p id="created_at">Created at: <%= @event.created_at %></p>
+  <p id="update_at">Last Updated at: <%= @event.updated_at %></p>
+  <ul class="event-list list-inline">
+      <li>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <h3>Event Description</h3>
+          </div>
+          <div class="panel-body">
+            Location: <p id="event-address">SFU Burnaby Campus</p>
+            Time: <p id="event-time">April 1 9pm</p>
+            Max. number of seats:<p id="max_seats">9001</p>
+            Skill Range<br>
+            <input id="ex2" data-slider-id="ex2Slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,10]" data-slider-enabled="false" />
+            <p id="event-description">We can write about the event in here. Whatever we want to write about </p>
+          </div>
+        </div>
+      </li><!--End of About-->
+      <li>
+        <div id="map" style="width: 100%; height: 200px; padding-bottom: 100%;"></div>
+        <script>
+          function initMap() { address_map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: {lat: 20, lng: -120} }) };
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvHY-_FELNd16XllRKyknT-BJ-WyfoQN0&callback=initMap">
+        </script>
+      </li><!--End of Map-->
+      <li>
+        <div id="attendee-info" class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">
+            <%= form_tag('/event_users') do |f| %>
+              <button id="invite-btn" type="submit" class="btn btn-primary">Join Event</button>
+              <input type="hidden" name="event_user[event_id]" id="event_id" value="<%= @event.id %>"/>
+            <% end %>
+            <h3>Attendees</h3>
+          </div>
+          <div class="panel-body">
+            <!-- Table -->
+            <table class="table">
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+              <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+              </tr>
+              <tr>
+                <td>Lois</td>
+                <td>Griffin</td>
+              </tr>
+              <tr>
+                <td>Joe</td>
+                <td>Swanson</td>
+              </tr>
+              <tr>
+                <td>Cleveland</td>
+                <td>Brown</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </li><!--End of Attendee info-->
+      <li>
+        <div class="chat-here">
+          <form method="post">
+            <textarea class="form-control" rows="3"></textarea>
+            <input type="submit" name="submit" value="Add Comment">
+          </form>
+        </div>
+      </li><!--End of Chat-->
   </ul>
-  <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
-</div><!--End of sidebar-->
-
-<div class="container">
-  <div  id="header-color" class="jumbotron">
-    <h1>SportNow</h1>
-</div>
-
-<div class="col-md-1"></div>
-<div class="center-content col-md-10">
-  <h1><%= @event.headline %></h1>
-  <div class="panel panel-default event-info">
-    <!-- Default panel contents -->
-    <div class="panel-heading">
-      <h2>About the Event</h2>
-    </div>
-    <div class="panel-body">
-      <%= @event.description %>
-    </div>
-  </div>
-
-  <div class="map-placeholder">
-    <%= image_tag("map.png", :width => "400px") %>
-  </div>
-
-  <div class="panel panel-default attendee-info">
-    <!-- Default panel contents -->
-    <div class="panel-heading">
-      <h3>Attendees</h3>
-    </div>
-    <div class="panel-body">
-      <!-- Table -->
-      <table class="table">
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-        </tr>
-        <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-        </tr>
-        <tr>
-          <td>Lois</td>
-          <td>Griffin</td>
-        </tr>
-        <tr>
-          <td>Joe</td>
-          <td>Swanson</td>
-        </tr>
-        <tr>
-          <td>Cleveland</td>
-          <td>Brown</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="join-event-wrapper">
-    <%= link_to "Join Event", { id: @event, action: "join" }, class: "btn btn-default", "data-method": "post" %>
-    <%= link_to "Leave Event", { id: @event, action: "leave" }, class: "btn btn-default", "data-method": "post" %>
-  </div>
-
-  <div class="chat-here">
-    <textarea class="form-control" rows="3"></textarea>
-    <input type="submit" name="submit" value="Add Comment">
-  </div>
 
 </div><!--End of main content-->
-<div class="col-md-1"></div>
-</div>

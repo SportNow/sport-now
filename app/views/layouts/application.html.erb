@@ -41,13 +41,76 @@
     <nav>
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-<!--           <ul class="hmenu">
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
-          </ul> -->
+        <div class="col-md-3">
+          <%= render "layouts/sidebar" %>
+        </div>
+        <div class="col-md-9">
+          <div id=banner>
+            <h1>SportNow</h1>
+            <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary">CREATE NEW EVENT</button><% end %>
+            <hr>
+          </div>
+          <div id=content-window>
+            <div id="mySearch" class="search-menu">
+    <a href="javascript:void(0)" class="closebtn white" onclick="closeSearch()">&times;</a>
+    <h2 class="white" >Filter by:</h2>
+
+    <div class="form-group select optional event_sport">
+      <label class="select optional control-label white" for="event_sport">Sport</label>
+      <select class="select optional form-control" name="event[sport]" id="event_sport"><option value=""></option>
+        <option value="1">Soccer</option>
+        <option value="2">Tennis</option>
+        <option value="3">Basketball</option>
+        <option value="4">Golf</option>
+        <option value="5">Running</option>
+        <option value="6">Cycling</option>
+        <option value="7">Ice Hockey</option>
+        <option value="8">Baseball</option>
+        <option value="9">Football</option>
+      </select>
+    </div>
+
+    <div class="search-calendar">
+      <h4 class="white">From</h4>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <h4 class="white">To</h4>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <ul class="sport-competitive white">
+      <h5>Sport type</h5>
+      <label><input id="search-slider-enabled" type="checkbox" value=""> Competitive</label>
+      <label><input type="checkbox" value=""> Recreational</label>
+
+      <h5>Skill Range</h5>
+      <input id="search-slider" data-slider-id="s-slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,10]" data-slider-enabled="false" />
+    </ul>
+
+    <ul class="search-list">
+        <li><a href="#">Find!</a></li>
+    </ul>
+</div><!--End of Search menu-->
+            <%= bootstrap_flash %>
+            <%= yield %>
+  <!--           <ul class="hmenu">
+              <%= render 'devise/menu/registration_items' %>
+              <%= render 'devise/menu/login_items' %>
+            </ul> -->
+          </div>
         </div>
       </div><!--/row-->
     </div> <!-- /container -->

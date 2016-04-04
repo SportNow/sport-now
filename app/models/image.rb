@@ -9,4 +9,5 @@
 class Image < ActiveRecord::Base
   # include ActiveModel::Validations
   # validates_with AssetValidator
+  mount_uploader :url, ImageUploader
 end

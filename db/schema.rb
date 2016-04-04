@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327203904) do
+ActiveRecord::Schema.define(version: 20160404005312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,33 +49,23 @@ ActiveRecord::Schema.define(version: 20160327203904) do
     t.integer  "max_seats"
     t.integer  "skill_min"
     t.integer  "skill_max"
-    t.integer  "image_id"
     t.integer  "sport_id"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "image"
   end
 
-  add_index "events", ["image_id"], name: "index_events_on_image_id", using: :btree
   add_index "events", ["sport_id"], name: "index_events_on_sport_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
-
-  create_table "images", force: :cascade do |t|
-    t.string   "path"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "image_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image"
   end
-
-  add_index "sports", ["image_id"], name: "index_sports_on_image_id", using: :btree
 
   create_table "user_preferences", force: :cascade do |t|
     t.integer  "skill_level"
@@ -109,25 +99,21 @@ ActiveRecord::Schema.define(version: 20160327203904) do
     t.text     "bio"
     t.date     "birth_date"
     t.string   "gender"
-    t.integer  "image_id"
     t.string   "last_name"
     t.string   "provider"
     t.string   "uid"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["image_id"], name: "index_users_on_image_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "event_users", "events"
   add_foreign_key "event_users", "users"
-  add_foreign_key "events", "images"
   add_foreign_key "events", "sports"
   add_foreign_key "events", "users"
-  add_foreign_key "sports", "images"
   add_foreign_key "user_preferences", "sports"
   add_foreign_key "user_preferences", "users"
-  add_foreign_key "users", "images"
 end

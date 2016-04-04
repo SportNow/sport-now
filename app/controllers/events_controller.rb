@@ -28,7 +28,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    @event.image_id = Image.first.id
+    @uploader = ImageUploader.new
+    @uploader.store!(event_params[:image])
+    logger.info @uploader
+    @event.user_id = current_user.id
+
 
     respond_to do |format|
       if @event.save
@@ -109,6 +113,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:headline, :description, :lat, :lng, :address, :datetime, :is_competitive, :max_seats, :skill_min, :skill_max, :image_id, :sport_id, :user_id)
+      params.require(:event).permit(:headline, :description, :lat, :lng, :address, :datetime, :is_competitive, :max_seats, :skill_min, :skill_max, :image, :sport_id, :user_id)
     end
 end
