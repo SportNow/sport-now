@@ -7,6 +7,12 @@ class EventsController < ApplicationController
     # user_id = params[:user_id]
 
     @events = Event.all
+
+    if params[:search]
+      @events = Event.search(params[:search])
+    else
+      @events = Event.all
+    end
   end
 
   # GET /events/1

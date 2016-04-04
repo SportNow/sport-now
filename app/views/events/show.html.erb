@@ -36,11 +36,11 @@
           </div>
           <div class="panel-body">
             Location: <p id="event-address">SFU Burnaby Campus</p>
-            Time: <p id="event-time">April 1 9pm</p>
-            Max. number of seats:<p id="max_seats">9001</p>
-            Skill Range<br>
-            <input id="ex2" data-slider-id="ex2Slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,10]" data-slider-enabled="false" />
-            <p id="event-description">We can write about the event in here. Whatever we want to write about </p>
+            Date and Time: <p id="event-time"><%= @event.datetime %></p>
+            Max. number of seats:<p id="max_seats"><%= @event.max_seats %></p>
+            <p>Minimum Skill Level: <%= @event.skill_min %></p>
+            <p>Maximum Skill Level: <%= @event.skill_max %></p>
+            <p id="event-description"><%= @event.description %></p>
           </div>
         </div>
       </li><!--End of About-->
@@ -68,22 +68,6 @@
               <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-              </tr>
-              <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-              </tr>
-              <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-              </tr>
-              <tr>
-                <td>Joe</td>
-                <td>Swanson</td>
-              </tr>
-              <tr>
-                <td>Cleveland</td>
-                <td>Brown</td>
               </tr>
             </table>
           </div>
