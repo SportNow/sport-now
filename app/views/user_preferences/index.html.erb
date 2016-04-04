@@ -4,7 +4,7 @@
       <% @sports.each_with_index do |sport, index| %>
           <li>
             <div class="sport-container">
-              <img src="<%= if sport.image != nil then sport.image.url end %>" alt="<%= sport.name %>" id="" class="sport-icon">
+              <img src="<%= sport.image_url %>" alt="<%= sport.name %>" id="" class="sport-icon">
               <i class="fa fa-check-circle fa-3x n_check <%= "active_sport" if @preferences_sports.has_key?(sport.id)%>"></i>
               <div class="skill_level" data-index="<%= index %>" style="<%= @preferences_sports.has_key?(sport.id) ? "display: block;" : "display: none;"; %> ">
                 <p>SKILL LEVEL</p>
