@@ -24,7 +24,7 @@ class EventUsersController < ApplicationController
   # POST /event_users
   # POST /event_users.json
   def create
-    @event_user = EventUser.new(event_user_params)
+    @event_user = EventUser.new()
     @event_user.user_id = current_user.id
 
     respond_to do |format|

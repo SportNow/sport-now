@@ -18,11 +18,15 @@
   update_at
   -->
   <%= image_tag("stadium.jpg", :id => "event-img") %>
-  <h1 id="event-headline">Headline</h1>
-  <p class="is_competitive">Competitive</p>
-  <a href="#" class="btn btn-default edit-button"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-  <p id="created_at">Event Created on Mar. 27 2016</p>
-  <p id="update_at">Last Updated on Mar. 27 2016</p>
+  <h1 id="event-headline"><%= @event.headline %>
+    <% if @event.is_competitive? %>
+      <span class="label label-warning">Competitive</span>
+    <% else %>
+      <span class="label label-info">Recreational</span>
+    <% end %>
+  </h1>
+  <p id="created_at">Created at: <%= @event.created_at %></p>
+  <p id="update_at">Last Updated at: <%= @event.updated_at %></p>
   <ul class="event-list list-inline">
       <li>
         <div class="panel panel-default">
@@ -54,7 +58,7 @@
           <div class="panel-heading">
             <%= form_tag('/event_users') do |f| %>
               <button id="invite-btn" type="submit" class="btn btn-primary">Join Event</button>
-              <input type="hidden" name="event_user[event_id]" value="<%= @event.id %>"/>
+              <input type="hidden" name="event_user[event_id]" id="event_id" value="<%= @event.id %>"/>
             <% end %>
             <h3>Attendees</h3>
           </div>
