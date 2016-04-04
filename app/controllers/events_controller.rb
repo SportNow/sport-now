@@ -28,7 +28,11 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @uploader = ImageUploader.new
+    @uploader.store!(event_params[:image])
+    logger.info @uploader
     @event.user_id = current_user.id
+
 
     respond_to do |format|
       if @event.save

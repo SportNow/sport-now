@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post "/events/:id/join" => "events#join"
   post "/events/:id/leave" => "events#leave"
   resources :user_preferences
+  resources :event_users
   root 'events#index'
 
   # devise_for :users
@@ -67,5 +68,5 @@ Rails.application.routes.draw do
 
   get "/about" => "welcome#about"
   get 'user' => 'users#show'
-  get 'user/events' => 'users#events'
+
 end

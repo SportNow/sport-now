@@ -52,7 +52,10 @@
         <div id="attendee-info" class="panel panel-default">
           <!-- Default panel contents -->
           <div class="panel-heading">
-            <button id="invite-btn" class="btn btn-primary">Join Event</button>
+            <%= form_tag('/event_users') do |f| %>
+              <button id="invite-btn" type="submit" class="btn btn-primary">Join Event</button>
+              <input type="hidden" name="event_user[event_id]" value="<%= @event.id %>"/>
+            <% end %>
             <h3>Attendees</h3>
           </div>
           <div class="panel-body">
