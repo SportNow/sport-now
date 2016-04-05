@@ -13,4 +13,7 @@ class Event < ActiveRecord::Base
 
   end
 
+  def is_joined(user)
+    EventUser.find_by(:event_id => self.id, :user_id => user.id)
+  end
 end
