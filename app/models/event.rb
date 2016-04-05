@@ -9,7 +9,18 @@ class Event < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   def self.search(params)
-    Event.where(:is_competitive=>params[:is_competitive]).where(:sport_id=>params[:sport_id])
+
+    events = Event.all
+
+    if (params[:sport_id] != "")
+      events = events.where(:sport_id=>params[:sport_id])
+    end
+
+    if params[:is_competitive]
+      events = events.where(:is_competitive=>params[:is_competitive])
+    end
+
+    return events
 
   end
 
