@@ -31,5 +31,5 @@ class EventUser < ActiveRecord::Base
   belongs_to :event
   validates :user_id, presence: true
   validates :event_id, presence: true, uniqueness: {scope: :user_id}
-  # validates_with JoinEventValidator
+#  validates_with JoinEventValidator
 end
