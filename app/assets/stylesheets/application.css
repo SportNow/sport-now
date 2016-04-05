@@ -18,6 +18,9 @@
 
   overflow: scroll;
   height: 500px; /* lol I promise I'll fix this */
+  background-color: white;
+  padding: 1em;
+  border-radius: 8px;
 
 }
 

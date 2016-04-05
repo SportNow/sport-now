@@ -68,5 +68,6 @@ Rails.application.routes.draw do
 
   get "/about" => "welcome#about"
   get 'user' => 'users#show'
-
+  get '/event/search' => 'events#search'
+  get '/event/search_show' => 'events#search_show'
 end
