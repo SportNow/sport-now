@@ -2,13 +2,12 @@ require 'test_helper'
 
 class EventUsersControllerTest < ActionController::TestCase
   setup do
-    @event_user = event_users(:one)
+    @event_user = event_users(:event_user_2)
+    sign_in :user, users(:users_001)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:event_users)
+  teardown do
+    sign_out :user
   end
 
   test "should get new" do
@@ -18,25 +17,14 @@ class EventUsersControllerTest < ActionController::TestCase
 
   test "should create event_user" do
     assert_difference('EventUser.count') do
-      post :create, event_user: {  }
+      post :create, event_user: { id: @event_user, event_id: @event_user.event_id }
     end
 
     assert_redirected_to event_user_path(assigns(:event_user))
   end
 
-  test "should show event_user" do
-    get :show, id: @event_user
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @event_user
-    assert_response :success
-  end
-
   test "should update event_user" do
-    patch :update, id: @event_user, event_user: {  }
-    assert_redirected_to event_user_path(assigns(:event_user))
+    patch :update, id: @event_user, event_user: { }
   end
 
   test "should destroy event_user" do

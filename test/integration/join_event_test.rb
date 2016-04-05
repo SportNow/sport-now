@@ -12,13 +12,6 @@ class JoinEventTest < ActionDispatch::IntegrationTest
     https!(false)
   end
 
-  test "viewing a joinable event should display a link to /events/:id/join" do
-    @event = events(:joinable_event_1)
-    get "/events/" + @event.id.to_s
-    assert_response :success
-    assert_select "a[href=?]", "/events/" + @event.id.to_s + "/join"
-  end
-
   test "joining an event while logged out should fail" do
     @event = events(:joinable_event_1)
     do_sign_out

@@ -19,7 +19,6 @@ users_001:
   bio: 
   birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
-  image_id: 
 users_002:
   id: '2'
   email: sara@gmail.com
@@ -40,7 +39,6 @@ users_002:
   bio: 
   birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
-  image_id: 
 users_003:
   id: '3'
   email: john@gmail.com
@@ -61,7 +59,6 @@ users_003:
   bio: 
   birth_date: <%= 18.years.ago.to_s(:db) %>
   gender: 
-  image_id: 
 user_just_old_enough:
   id: '4'
   email: johnny@gmail.com

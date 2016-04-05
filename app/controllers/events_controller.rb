@@ -82,7 +82,7 @@ class EventsController < ApplicationController
   def join
     respond_to do |format|
       if (Time.now > @event.datetime)
-        format.html { render :show }
+        format.html { render :show, notice: 'Event has already taken place' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       else
         @event_user = EventUser.new(user_id: current_user.id, event_id: @event.id)
@@ -90,7 +90,7 @@ class EventsController < ApplicationController
           format.html { redirect_to @event, notice: 'You have joined the event: ' + @event.headline }
           format.json { render :show, status: :created, location: @event }
         else
-          format.html { render :show }
+          format.html { render :show, notice: 'Could not join event' }
           format.json { render json: @event.errors, status: :unprocessable_entity }
         end
       end
@@ -101,7 +101,7 @@ class EventsController < ApplicationController
   def leave
     @event_user = EventUser.find_by user_id: current_user.id, event_id: @event.id
     respond_to do |format|
-      if @event_user.destroy
+      if @event_user != nil and @event_user.destroy
         format.html { redirect_to @event, notice: 'You have left the event: ' + @event.headline }
         format.json { render :show, status: :created, location: @event }
       else
