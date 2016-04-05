@@ -46,40 +46,39 @@ sport = Sport.create(name: 'Football', description: 'Sport')
 sport[:image] =  'football-icon-mono.png'
 sport.save!
 
-event = event = Event.create!(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = event = Event.create!(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.first, user: User.first)
+event = Event.create(headline: 'Sample Event', description: 'Sample Description', sport: Sport.sample, user: User.first)
 event[:image] =  'basketball-court.jpg'
 event.save!
-

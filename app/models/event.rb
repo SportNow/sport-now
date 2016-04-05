@@ -8,8 +8,9 @@ class Event < ActiveRecord::Base
   validates :user_id, presence: true
   mount_uploader :image, ImageUploader
 
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+  def self.search(params)
+    Event.where(:is_competitive=>params[:is_competitive]).where(:sport_id=>params[:sport_id])
+
   end
 
   def is_joined(user)
