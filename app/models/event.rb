@@ -12,12 +12,16 @@ class Event < ActiveRecord::Base
 
     events = Event.all
 
-    if (params[:sport_id] != "")
+    if params[:sport_id] && (not params[:sport_id].empty?)
       events = events.where(:sport_id=>params[:sport_id])
     end
 
     if params[:is_competitive]
       events = events.where(:is_competitive=>params[:is_competitive])
+    end
+
+    if params[:joined]
+      events = Events.find(is_joined(current_user))
     end
 
     return events
