@@ -17,7 +17,7 @@
   created_at
   update_at
   -->
-  <%= image_tag("stadium.jpg", :id => "event-img") %>
+  <%= image_tag(@event.image_url, :id => "event-img") %>
   <h1 id="event-headline"><%= @event.headline %>
     <% if @event.is_competitive? %>
       <span class="label label-warning">Competitive</span>
@@ -80,7 +80,8 @@
               </tr> -->
               <tr>
                 <% @event.users.each do |user| %>
-                  <td><%= user.first_name %></td>
+
+                  <td><a href="/user/<%= user.id %>"><%= user.first_name %></a></td>
                 <% end %>
               </tr>
             </table>
