@@ -18,6 +18,10 @@
       <%= f.input :is_competitive %>
       <p>Minimum Skill Level: <%= f.select :skill_min, options_for_select((0..10).step(1))%></p>
       <p>Maximum Skill Level: <%= f.select :skill_max, options_for_select((0..10).step(1))%></p>
+      <div class="fileUpload btn btn-primary">
+          <span>Add a picture!</span>
+          <%= f.file_field :image, class: "upload" %>
+      </div>
 
     </div>
 
