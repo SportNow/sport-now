@@ -37,7 +37,7 @@
             <h3>Event Description</h3>
           </div>
           <div class="panel-body">
-            Location: <p id="event-address">SFU Burnaby Campus</p>
+            Location: <p id="event-address"><%= @event.address %></p>
             Date and Time: <p id="event-time"><%= @event.datetime %></p>
             Max. number of seats:<p id="max_seats"><%= @event.max_seats %></p>
             <p>Minimum Skill Level: <%= @event.skill_min %></p>
