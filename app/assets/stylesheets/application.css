@@ -17,13 +17,35 @@
 #content-window {
 
   overflow: scroll;
-  height: 500px; /* lol I promise I'll fix this */
+  height: 100%
   background-color: white;
   padding: 1em;
   border-radius: 8px;
 
 }
 
-#banner {
+.content-secondary {
 
+  background-color: black;
+
+}
+
+.fill_page {
+
+  height: 50%;
+
+}
+
+html,body,.container
+{
+    height:100%;
+}
+.container
+{
+    display:table;
+    width: 100%;
+    margin-top: -50px;
+    padding-top: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }

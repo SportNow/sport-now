@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :user_id, presence: true
   mount_uploader :image, ImageUploader
 
-  def self.search(params)
+  def self.search(params, user)
 
     events = Event.all
 
@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
     end
 
     if params[:joined]
-      events = Events.find(is_joined(current_user))
+      events = user.events
     end
 
     return events

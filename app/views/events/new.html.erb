@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
 <script src="js/locationpicker.jquery.js"></script>
 -->
@@ -21,28 +21,8 @@
 
     </div>
 
-    <%= render "map" %>
-
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
   <% end %>
 </div>
-
-<script>
-$(document).ready(function(){
-  $("#new_event").submit( function(eventObj) {
-    if (address_marker) {
-      $('<input />').attr('type', 'hidden')
-        .attr('name', 'event[lat]')
-        .attr('value', address_marker.getPosition().lat())
-        .appendTo('#new_event');
-      $('<input />').attr('type', 'hidden')
-        .attr('name', 'event[lng]')
-        .attr('value', address_marker.getPosition().lng())
-        .appendTo('#new_event');
-    }
-    return true;
-  });
-});
-</script>
