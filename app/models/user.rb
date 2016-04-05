@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                               :after_message => "Must be younger than 200 years",
                               :before => lambda { 3.years.ago },
                               :before_message => "Must be at least 3 years old"
+  has_many :event_users
   has_many :events, through: :event_users
   has_many :user_preferences
   mount_uploader :image, ImageUploader

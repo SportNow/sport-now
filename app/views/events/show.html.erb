@@ -75,9 +75,13 @@
           <div class="panel-body">
             <!-- Table -->
             <table class="table">
-              <tr>
+          <!--     <tr>
                 <th>First Name</th>
-                <th>Last Name</th>
+              </tr> -->
+              <tr>
+                <% @event.users.each do |user| %>
+                  <td><%= user.first_name %></td>
+                <% end %>
               </tr>
             </table>
           </div>

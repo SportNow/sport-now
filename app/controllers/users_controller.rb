@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    if params[:id]
+      @user = User::find(params[:id])
+    else
+      @user = current_user
+    end
+
     @sport = Sport.all
   end
 

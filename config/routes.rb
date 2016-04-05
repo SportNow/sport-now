@@ -68,4 +68,5 @@ Rails.application.routes.draw do
 
   get "/about" => "welcome#about"
   get 'user' => 'users#show'
+  get 'user/:id' => 'users#show'
 end
