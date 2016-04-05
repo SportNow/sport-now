@@ -56,9 +56,17 @@
         <div id="attendee-info" class="panel panel-default">
           <!-- Default panel contents -->
           <div class="panel-heading">
-            <%= form_tag('/event_users') do |f| %>
-              <button id="invite-btn" type="submit" class="btn btn-primary">Join Event</button>
-              <input type="hidden" name="event_user[event_id]" id="event_id" value="<%= @event.id %>"/>
+            <% @event_user = @event.is_joined(current_user) %>
+            <% if  @event_user%>
+              <%= form_tag('/event_users/' + @event_user.id.to_s, method: 'delete') do |f| %>
+                <button id="invite-btn" type="submit" class="btn btn-danger">Leave Event</button>
+                <input type="hidden" name="event_user[event_id]" id="event_id" value="<%= @event.id %>"/>
+              <% end %>
+            <% else %>
+              <%= form_tag('/event_users') do |f| %>
+                <button id="invite-btn" type="submit" class="btn btn-primary">Join Event</button>
+                <input type="hidden" name="event_user[event_id]" id="event_id" value="<%= @event.id %>"/>
+              <% end %>
             <% end %>
             <h3>Attendees</h3>
           </div>
