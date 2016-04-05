@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def index
     # user_id = params[:user_id]
 
-    @events = Event.search(params)
+    @events = Event.search(params, current_user)
 
   end
 

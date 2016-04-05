@@ -1,0 +1,22 @@
+<div class="sidebar">
+  <ul class="vert-one">
+    <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
+    <h3 style="color:white; text-align:center;">NAME</h3>
+    <li><%= link_to "User Profile", user_path %></li>
+    <li><a href="/events/?utf8=✓&joined=on">My Events</a></li>
+    <li><%= link_to "Sports Feed", root_path %></li>
+    <li><%= link_to "Preferences", user_preferences_path %></li>
+    <li><%= form_tag(events_path, :method => "get", id: "search-form") do |f| %>
+      <p>Competitive
+        <%= check_box_tag :is_competitive, params[:is_competitive] %>
+        <%=
+          @all_sport = Sport.all
+          select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
+        <br><%= submit_tag "Search" %>
+      <% end %>
+
+      </p>
+    </li>
+    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+  </ul>
+</div><!--End of sidebar-->

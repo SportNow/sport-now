@@ -1,22 +1,105 @@
-<div class="sidebar">
-  <ul class="vert-one">
-    <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
-    <h3 style="color:white; text-align:center;">NAME</h3>
-    <li><%= link_to "User Profile", user_path %></li>
-    <li><a href="/events/?utf8=✓&">My Events</a></li>
-    <li><%= link_to "Sports Feed", root_path %></li>
-    <li><%= link_to "Preferences", user_preferences_path %></li>
-    <li><%= form_tag(events_path, :method => "get", id: "search-form") do |f| %>
-      <p>Competitive
-        <%= check_box_tag :is_competitive, params[:is_competitive] %>
-        <%=
-          @all_sport = Sport.all
-          select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
-        <br><%= submit_tag "Search" %>
-      <% end %>
+<script type="text/javascript">
+  $(function() {
+    $('#example').barrating({
+      theme: 'fontawesome-stars'
+    });
+  });
+</script>
 
-      </p>
-    </li>
-    <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-  </ul>
-</div><!--End of sidebar-->
+
+<script>
+  /* Set the width of the side navigation to 250px */
+  function openSearch() {
+      document.getElementById("mySearch").style.width = "20em";
+  }
+
+  /* Set the width of the side navigation to 0 */
+  function closeSearch() {
+      document.getElementById("mySearch").style.width = "0";
+  }
+
+</script>
+
+<script type="text/javascript">
+  $(function () {
+      $('#datetimepicker6').datetimepicker();
+      $('#datetimepicker7').datetimepicker({
+          useCurrent: false //Important! See issue #1075
+      });
+      $("#datetimepicker6").on("dp.change", function (e) {
+          $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datetimepicker7").on("dp.change", function (e) {
+          $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+      });
+  });
+</script>
+
+
+
+<div class="content-secondary">
+  <header class="header-primary">
+    <ul class="vert-one">
+      <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
+      <h3 style="color:white; text-align:center;">NAME</h3>
+      <li><%= link_to "User Profile", user_path %></li>
+      <li><a href="/events/?utf8=✓&joined=on">My Events</a></li>
+      <li><%= link_to "Sports Feed", root_path %></li>
+      <li><a href="#" title="Search" onclick="openSearch()">Search</a></li>
+      <li><%= link_to "Preferences", user_preferences_path %></li>
+      <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+    </ul>
+    <div id="mySearch" class="search-menu">
+      <a href="javascript:void(0)" class="closebtn white" onclick="closeSearch()">&times;</a>
+      <h2 class="white" >Filter by:</h2>
+
+      <div class="form-group select optional event_sport">
+        <label class="select optional control-label white" for="event_sport">Sport</label>
+        <select class="select optional form-control" name="event[sport]" id="event_sport"><option value=""></option>
+          <option value="1">Soccer</option>
+          <option value="2">Tennis</option>
+          <option value="3">Basketball</option>
+          <option value="4">Golf</option>
+          <option value="5">Running</option>
+          <option value="6">Cycling</option>
+          <option value="7">Ice Hockey</option>
+          <option value="8">Baseball</option>
+          <option value="9">Football</option>
+        </select>
+      </div>
+
+      <div class="search-calendar">
+        <h4 class="white">From</h4>
+          <div class="form-group">
+              <div class='input-group date' id='datetimepicker6'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+          <h4 class="white">To</h4>
+          <div class="form-group">
+              <div class='input-group date' id='datetimepicker7'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+          </div>
+      </div>
+
+      <ul class="sport-competitive white">
+        <h5>Sport type</h5>
+        <label><input id="search-slider-enabled" type="checkbox" value=""> Competitive</label>
+        <label><input type="checkbox" value=""> Recreational</label>
+
+        <h5>Skill Range</h5>
+        <input id="search-slider" data-slider-id="s-slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,10]" data-slider-enabled="false" />
+      </ul>
+
+      <ul class="search-list">
+          <li><a href="#">Find!</a></li>
+      </ul>
+  </div><!--End of Search menu-->
+</div>
