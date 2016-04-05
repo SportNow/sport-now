@@ -2,44 +2,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.5/css/bootstrap-slider.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-<script type="text/javascript">
-  $(function() {
-    $('#example').barrating({
-      theme: 'fontawesome-stars'
-    });
-  });
-</script>
-
-
-<script>
-  /* Set the width of the side navigation to 250px */
-  function openSearch() {
-      document.getElementById("mySearch").style.width = "20em";
-  }
-
-  /* Set the width of the side navigation to 0 */
-  function closeSearch() {
-      document.getElementById("mySearch").style.width = "0";
-  }
-
-</script>
-
-<script type="text/javascript">
-  $(function () {
-      $('#datetimepicker6').datetimepicker();
-      $('#datetimepicker7').datetimepicker({
-          useCurrent: false //Important! See issue #1075
-      });
-      $("#datetimepicker6").on("dp.change", function (e) {
-          $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-      });
-      $("#datetimepicker7").on("dp.change", function (e) {
-          $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-      });
-  });
-</script>
-
-
 
 <div class="content-secondary">
   <header class="header-primary">

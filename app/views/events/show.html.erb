@@ -47,12 +47,7 @@
         </div>
       </li><!--End of About-->
       <li>
-        <div id="map" style="width: 100%; height: 200px; padding-bottom: 100%;"></div>
-        <script>
-          function initMap() { address_map = new google.maps.Map(document.getElementById('map'), { zoom: 4, center: {lat: 20, lng: -120} }) };
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvHY-_FELNd16XllRKyknT-BJ-WyfoQN0&callback=initMap">
-        </script>
+        <%= image_tag("http://maps.googleapis.com/maps/api/staticmap?markers=color:blue%7C" +  @event.lat.to_s + "," + @event.lng.to_s + "&size=400x400&sensor=fakse") %>
       </li><!--End of Map-->
       <li>
         <div id="attendee-info" class="panel panel-default">
