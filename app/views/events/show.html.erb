@@ -24,9 +24,11 @@
     <% else %>
       <span class="label label-info">Recreational</span>
     <% end %>
+    <span class="label label-primary"><%= Sport.find(@event.sport_id).name %></span>
   </h1>
   <p id="created_at">Created at: <%= @event.created_at %></p>
   <p id="update_at">Last Updated at: <%= @event.updated_at %></p>
+
   <ul class="event-list list-inline">
       <li>
         <div class="panel panel-default">

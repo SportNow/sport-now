@@ -7,7 +7,17 @@
     <li><%= link_to "Sports Feed", root_path %></li>
     <li><%= link_to "About Us", about_path %></li>
     <li><%= link_to "Preferences", user_preferences_path %></li>
-    <li><%= link_to "Search", event_search_path %></li>
+    <li><%= form_tag(events_path, :method => "get", id: "search-form") do |f| %>
+      <p>Competitive
+        <%= check_box_tag :is_competitive, params[:is_competitive] %>
+        <%=
+          @all_sport = Sport.all
+          select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
+        <br><%= submit_tag "Search" %>
+      <% end %>
+
+      </p>
+    </li>
     <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
   </ul>
 </div><!--End of sidebar-->
