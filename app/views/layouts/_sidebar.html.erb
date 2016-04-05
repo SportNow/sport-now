@@ -6,7 +6,7 @@
 <div class="content-secondary">
   <header class="header-primary">
     <ul class="vert-one">
-      <% image = @user.image_url ? @user.image_url : "user.jpg" %>
+      <% image = current_user.image_url ? current_user.image_url : "user.jpg" %>
             <%= image_tag(image, :alt => "User", :class => "img-responsive img-circle") %>
       <h3 style="color:white; text-align:center;"><%= current_user.first_name %></h3>
       <li><%= link_to "User Profile", current_user %></li>

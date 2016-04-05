@@ -40,11 +40,14 @@
     <div class="container">
       <div class="row">
         <div class="no-float col-md-3">
-          <%= render "layouts/sidebar" %>
+          <% if user_signed_in? %>
+            <%= render "layouts/sidebar" %>
+          <% end %>
         </div>
         <div class="no-float col-md-9">
           <div id=banner>
             <h1>SportNow</h1>
+            <% if user_signed_in? %>
             <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary">CREATE NEW EVENT</button><% end %>
             <%= form_tag(events_path, :method => "get", id: "search-form") do |f| %>
               <p>Competitive
@@ -55,6 +58,7 @@
                 <br><%= submit_tag "Search" %>
               <% end %>
               </p>
+              <% end %>
             <hr>
 
           </div>
