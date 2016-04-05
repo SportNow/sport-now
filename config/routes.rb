@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post "/events/:id/leave" => "events#leave"
   resources :user_preferences
   resources :event_users
-  # resources :users
+  resources :users, :path => "players"
   root 'events#index'
 
   # devise_for :users
@@ -68,6 +68,6 @@ Rails.application.routes.draw do
   #   end
 
   get "/about" => "welcome#about"
-  get 'user' => 'users#show'
-  get 'user/:id' => 'users#show'
+  # get 'user' => 'users#show'
+  # get 'user/:id' => 'users#show'
 end

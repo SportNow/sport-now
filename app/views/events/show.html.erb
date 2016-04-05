@@ -76,7 +76,7 @@
               <tr>
                 <% @event.users.each do |user| %>
 
-                  <td><a href="/user/<%= user.id %>"><%= user.first_name %></a></td>
+                  <td><%= link_to user.first_name, user %></a></td>
                 <% end %>
               </tr>
             </table>
