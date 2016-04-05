@@ -130,4 +130,8 @@ $( document ).ready( function() {
     $(".edit-btn3").click(divClicked3);
     $(".edit-btn4").click(divClicked4);
 
+    $("#user-profile").change(function(){
+      $('.edit_user').submit();
+    });
+
 });

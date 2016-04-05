@@ -8,11 +8,14 @@
     <ul class="list-inline">
       <li>
         <div class="user-placeholder">
-          <%= image_tag("user.jpg", :alt => "User", :class => "img-responsive img-circle") %>
-          <div class="fileUpload btn btn-primary">
-              <span>Update Profile Picture</span>
-              <input type="file" class="upload" />
-          </div>
+          <%= simple_form_for(@user) do |f| %>
+            <% image = @user.image_url ? @user.image_url : "user.jpg" %>
+            <%= image_tag(image, :alt => "User", :class => "img-responsive img-circle") %>
+            <div id="user-profile" class="fileUpload btn btn-primary">
+                <span>Update Profile Picture</span>
+                <%= f.file_field :image, class: "upload" %>
+            </div>
+          <% end %>
         </div>
       </li>
       <li>
