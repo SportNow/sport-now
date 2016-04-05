@@ -23,7 +23,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should create event" do
     assert_difference('Event.count') do
-      post :create, event: { address: @event.address, datetime: @event.datetime, description: @event.description, headline: @event.headline, image_id: @event.image_id, lat: @event.lat, lng: @event.lng, max_seats: @event.max_seats, skill_max: @event.skill_max, skill_min: @event.skill_min, sport_id: @event.sport_id, is_competitive: @event.is_competitive, user_id: @event.user_id }
+      post :create, event: { address: @event.address, datetime: @event.datetime, description: @event.description, headline: @event.headline, lat: @event.lat, lng: @event.lng, max_seats: @event.max_seats, skill_max: @event.skill_max, skill_min: @event.skill_min, sport_id: @event.sport_id, is_competitive: @event.is_competitive, user_id: @event.user_id }
     end
 
     assert_redirected_to event_path(assigns(:event))
@@ -40,7 +40,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should update event" do
-    patch :update, id: @event, event: { address: @event.address, datetime: @event.datetime, description: @event.description, headline: @event.headline, image_id: @event.image_id, lat: @event.lat, lng: @event.lng, max_seats: @event.max_seats, skill_max: @event.skill_max, skill_min: @event.skill_min, sport_id: @event.sport_id, is_competitive: @event.is_competitive, user_id: @event.user_id }
+    patch :update, id: @event, event: { address: @event.address, datetime: @event.datetime, description: @event.description, headline: @event.headline, lat: @event.lat, lng: @event.lng, max_seats: @event.max_seats, skill_max: @event.skill_max, skill_min: @event.skill_min, sport_id: @event.sport_id, is_competitive: @event.is_competitive, user_id: @event.user_id }
     assert_redirected_to event_path(assigns(:event))
   end
 
