@@ -44,6 +44,7 @@
             <%= render "layouts/sidebar" %>
           <% end %>
         </div>
+
         <div class="no-float col-md-7">
           <div id=banner>
             <% if user_signed_in? %>
@@ -108,15 +109,16 @@
 
                   <%= submit_tag "Search", class: "btn btn-default" %>
                   <% end %>
+                  </div>
+            </div>
+            </div>
                   <!-- </p> -->
               <% end %>
-              </div>
-          </div>
+
 
             <hr>
 
-          </div>
-          <div id=content-window>
+          <div id=content-window style="<%= ((action_name == 'new' || action_name == 'create') && controller_name != 'sessions') ? 'background-color: rgba(255, 255, 255, 0.92);' : '' %>">
             <%= bootstrap_flash %>
             <%= yield %>
   <!--           <ul class="hmenu">
