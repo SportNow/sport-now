@@ -4,7 +4,11 @@
         <div class="thumbnail image">
             <img class="img-responsive icon effect" src="<%= event.image_url %>">
             <h2><span><%= event.headline %></span></h2>
-            <h3 class="sport-label"><span class="marker-bg"></span></h3>
+            <% if event.is_competitive? %>
+              <span class="label label-warning">Competitive</span>
+            <% else %>
+              <span class="label label-info">Recreational</span>
+            <% end %>
         </div>
     </div>
   <% end %>
