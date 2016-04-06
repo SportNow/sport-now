@@ -66,6 +66,10 @@
                       @all_sport = Sport.all
                       select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
                       </div>
+
+                    <div class="form-group search-color"> Skill Range
+                      <input id="search-slider" data-slider-id="s-slider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="[0,10]" data-slider-enabled="true" />
+                    </div>
                       <br/>
           <!--           <div class="container">
                         <div class="row">
