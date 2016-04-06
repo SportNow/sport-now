@@ -44,7 +44,7 @@
             <%= render "layouts/sidebar" %>
           <% end %>
         </div>
-        <div class="no-float col-md-9">
+        <div class="no-float col-md-7">
           <div id=banner>
             <% if user_signed_in? %>
             <h1>SportNow <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary">CREATE NEW EVENT</button><% end %></h1>
@@ -105,6 +105,7 @@
             </ul> -->
           </div>
         </div>
+        <div class="col-md-2"> </div>
       </div><!--/row-->
     </div> <!-- /container -->
   </body>
