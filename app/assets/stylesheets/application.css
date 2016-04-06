@@ -26,7 +26,7 @@
 
 .content-secondary {
 
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.73);
 
 }
 
@@ -48,4 +48,21 @@ html,body,.container
     padding-top: 50px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.create-event-button {
+  margin-top: 30px;
+}
+
+
+.search-header {
+    background-color: rgba(59, 62, 68, 0.78);
+    border-radius: 15px;
+    height: 110px;
+    padding-top: 3px;
+}
+
+
+.search-color {
+  color: white;
 }

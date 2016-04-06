@@ -47,52 +47,68 @@
         <div class="no-float col-md-7">
           <div id=banner>
             <% if user_signed_in? %>
-            <h1>SportNow <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary">CREATE NEW EVENT</button><% end %></h1>
-            <%= form_tag(events_path, :method => "get", id: "search-form") do |f| %>
-              <p><strong>Search:</strong> Competitive
-                <%= check_box_tag :is_competitive, params[:is_competitive] %>
-                Sport: <%=
-                  @all_sport = Sport.all
-                  select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
-                  <div class="container">
-                  <div class="row">
-                      <div class='col-sm-4'>
-                          <div class="form-group">
-                              <div class='input-group date' id='datetimepicker1'>
-                                  <input type='text' class="form-control" />
-                                  <span class="input-group-addon">
-                                      <span class="glyphicon glyphicon-calendar"></span>
-                                  </span>
-                              </div>
-                          </div>
+            <h1>SportNow </h1>
+            <div class="container">
+              <div class="col-md-4">
+              <%= link_to(new_event_path) do %><button type="button" class="btn btn-primary create-event-button">CREATE NEW EVENT</button><% end %>
+              </div>
+              <div class="col-md-7 search-header">
+                <h4 class="search-color">Find A Game!</h4>
+                <%= form_tag(events_path, :method => "get", id: "search-form", class: "form-inline") do |f| %>
+                  <!-- <p><strong>Search:</strong> -->
+                    <div class="checkbox">
+                      <label class="search-color">
+                      <%= check_box_tag :is_competitive, params[:is_competitive] %>Is Competitive
+                      </label>
+                    </div>
+                    <div class="form-group">
+                    <span class="search-color"> Sport:</span> <%=
+                      @all_sport = Sport.all
+                      select_tag "sport_id", options_for_select(@all_sport.collect {|p| [ p['name'], p['id'] ] }), :include_blank => true %>
                       </div>
-                      <script type="text/javascript">
-                          $(function () {
-                              $('#datetimepicker1').datetimepicker();
-                          });
-                      </script>
-                  <div class='col-sm-4'>
-                      <div class="form-group">
-                          <div class='input-group date' id='datetimepicker2'>
-                              <input type='text' class="form-control" />
-                              <span class="input-group-addon">
-                                  <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                          </div>
-                      </div>
-                  </div>
-                  <script type="text/javascript">
-                      $(function () {
-                          $('#datetimepicker2').datetimepicker();
-                      });
-                  </script>
+                      <br/>
+          <!--           <div class="container">
+                        <div class="row">
+                            <div class='col-sm-4'> -->
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" placeholder="From" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <script type="text/javascript">
+                                $(function () {
+                                    $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
+                        <!-- <div class='col-sm-4'> -->
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker2'>
+                                    <input type='text' class="form-control" placeholder="To" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                        <script type="text/javascript">
+                            $(function () {
+                                $('#datetimepicker2').datetimepicker();
+                            });
+                        </script>
+                    <!-- </div> -->
+                  <!-- </div> -->
+
+                  <%= submit_tag "Search", class: "btn btn-default" %>
+                  <% end %>
+                  <!-- </p> -->
+              <% end %>
               </div>
           </div>
 
-              <%= submit_tag "Search" %>
-              <% end %>
-              </p>
-              <% end %>
             <hr>
 
           </div>
